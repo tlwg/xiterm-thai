@@ -1,10 +1,10 @@
 # ./Make.common.in	 -*- Makefile -*-
 
-DATE="2 April 2001"#
-LSMDATE=2APR01#
-VERSION=1.04.cvs#
-VERNAME=xiterm+thai-$(VERSION)#
-MAINT="Theppitak Karoonboonyanan <theppitak@nectec.or.th>"
+DATE=@DATE@
+LSMDATE=@LSMDATE@
+VERSION=@VERSION@
+VERNAME=@VERNAME@
+MAINT=@MAINT@
 srcdir = @srcdir@
 VPATH  = @srcdir@
 SHELL = /bin/sh

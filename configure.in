@@ -3,6 +3,18 @@ dnl# Process this file with autoconf to produce a configure script.
 dnl#
 AC_INIT(src/feature.h)
 
+DATE="27 November 2001"
+LSMDATE=27NOV01
+VERSION=1.04
+VERNAME=xiterm+thai-${VERSION}
+MAINT="Theppitak Karoonboonyanan <thep@links.nectec.or.th>"
+
+AC_SUBST(DATE)
+AC_SUBST(LSMDATE)
+AC_SUBST(VERSION)
+AC_SUBST(VERNAME)
+AC_SUBST(MAINT)
+
 dnl#
 dnl# Supply default CFLAGS, if not specified by `CFLAGS=flags ./configure'
 dnl#
@@ -94,7 +106,7 @@ AC_SUBST_FILE(MCOMMON)
 
 AC_CONFIG_HEADER(config.h)
 AC_OUTPUT(Make.common Makefile src/Makefile \
-doc/Makefile xiterm+thai.spec)
+doc/Makefile doc/LSM doc/xiterm.1 xiterm+thai.spec)
 
 echo "
 Configuration:

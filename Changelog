@@ -10,6 +10,18 @@
 	* src/feature.h:
 	Comment out UTMP_SUPPORT, as it does not compile on RH7.2.
 
+	* configure.in, Make.common.in, doc/Makefile.in:
+	Move package name & versions from Make.common.in to configure.in.
+	Let configure.in handle doc/LSM and doc/xiterm.1 instead of make.
+
+	* Makefile.in:
+	Also clear xiterm+thai.spec before 'make distrib'.
+	Fix 'make distrib' so that CVS's and .cvsignore's are not included
+	in the tarball.
+	Use -h option of tar to read symlinks, so that, when working with
+	cvs, one can 'make distrib' by creating symlink $(NAME)-$(VERSION)
+	pointing to xiterm+thai repository.
+
 
 2001-08-01  Chanop Silpa-Anan <chanop@debian.org>
 
