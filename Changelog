@@ -1,3 +1,8 @@
+2001-08-01  Chanop Silpa-Anan <chanop@debian.org>
+
+	* src/command.c: use /dev/ptmx for linux platform this fix a
+	problem in using devfs.
+
 2001-02-22  Theppitak Karoonboonyanan <thep@links.nectec.or.th>
 
 	* src/command.c, src/screen.c :
