@@ -1,3 +1,8 @@
+2003-03-13  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* xiterm+thai.spec.in:
+	Comment out sources that are not included in source tarball
+
 2003-03-10  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/command.c:

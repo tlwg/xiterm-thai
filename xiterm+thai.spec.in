@@ -9,12 +9,12 @@ Release: %{release}
 Copyright: GPL
 Group: Extensions/Thai
 Source0: %{name}-%{version}.tar.gz
-Source1: txiterm
-Source2: txiterm.desktop
-Source3: Txiterm.kdelnk
+#Source1: txiterm
+#Source2: txiterm.desktop
+#Source3: Txiterm.kdelnk
 BuildRoot: /var/tmp/%{name}-%{version}-root
 URL: http://linux.thai.net/linux-tle/
-Distribution: Linux TLE, Thai Linux Working Group
+Distribution: Thai Linux Working Group
 Vendor: Modified by Vuthichai Ampornaramvech <vuthi@venus.dti.ne.jp>
 Packager: Theppitak Karoonboonyanan <thep@links.nectec.or.th>
 Requires: thaixfonts >= 1.1-3, XFree86 >= 4.3.0
@@ -38,10 +38,10 @@ make
 mkdir -p $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 
-install -D -m 755 %{SOURCE1} $RPM_BUILD_ROOT/usr/bin/%{SOURCE1}
-# mHom: install menu.
-install -D -m 644 %{SOURCE2} $RPM_BUILD_ROOT/usr/share/gnome/apps/Utilities/txiterm.desktop
-install -D -m 644 %{SOURCE3} $RPM_BUILD_ROOT/etc/skel/Desktop/Txiterm.kdelnk
+#install -D -m 755 %{SOURCE1} $RPM_BUILD_ROOT/usr/bin/%{SOURCE1}
+## mHom: install menu.
+#install -D -m 644 %{SOURCE2} $RPM_BUILD_ROOT/usr/share/gnome/apps/Utilities/txiterm.desktop
+#install -D -m 644 %{SOURCE3} $RPM_BUILD_ROOT/etc/skel/Desktop/Txiterm.kdelnk
 
 # __os_install_post is implicitly expanded after the
 # install section... do it now, and then disable it,
@@ -72,6 +72,9 @@ rm -fr $RPM_BUILD_ROOT/%{name}-%{version}-root
 #%doc README.thai
 
 %changelog
+* Thu Mar 13 2003 Theppitak Karoonboonyanan <thep@linux.thai.net>
+- comment out sources that are not included in source tarball
+
 * Sat Mar 01 2003 Theppitak Karoonboonyanan <thep@linux.thai.net>
 - requires XFree86 >= 4.3.0, according to last change in string conversion
   callback support
