@@ -94,7 +94,7 @@ AC_SUBST_FILE(MCOMMON)
 
 AC_CONFIG_HEADER(config.h)
 AC_OUTPUT(Make.common Makefile src/Makefile \
-doc/Makefile )
+doc/Makefile xiterm+thai.spec)
 
 echo "
 Configuration:

@@ -1,7 +1,11 @@
-Summary: xiterm with Thai patch
-Name: xiterm+thai
-Version: 1.04pre1
-Release: 1
+%define name xiterm+thai
+%define version @VERSION@
+%define release 1
+%define manifest %{_builddir}/%{name}-%{version}-%{release}.manifest
+
+Name: %{name}
+Version: %{version}
+Release: %{release}
 Copyright: GPL
 Group: Extensions/Thai
 Source0: %{name}-%{version}.tar.gz
@@ -9,11 +13,12 @@ Source1: txiterm
 Source2: txiterm.desktop
 Source3: Txiterm.kdelnk
 BuildRoot: /var/tmp/%{name}-%{version}-root
-URL: http://zzzthai.fedu.uec.ac.jp/linux
+URL: http://linux.thai.net/linux-tle/
 Distribution: Linux TLE, Thai Linux Working Group
 Vendor: Modified by Vuthichai Ampornaramvech <vuthi@venus.dti.ne.jp>
 Packager: Theppitak Karoonboonyanan <thep@links.nectec.or.th>
 Requires: thaixfonts >= 1.1-3
+Summary: xiterm with Thai patch
 
 
 %description
@@ -38,26 +43,41 @@ install -D -m 755 %{SOURCE1} $RPM_BUILD_ROOT/usr/bin/%{SOURCE1}
 install -D -m 644 %{SOURCE2} $RPM_BUILD_ROOT/usr/share/gnome/apps/Utilities/txiterm.desktop
 install -D -m 644 %{SOURCE3} $RPM_BUILD_ROOT/etc/skel/Desktop/Txiterm.kdelnk
 
+# __os_install_post is implicitly expanded after the
+# %install section... do it now, and then disable it,
+# so all work is done before building manifest.
+
+%{?__os_install_post}
+%define __os_install_post %{nil}
+
+# build the file list automagically into %{manifest}
+
+cd $RPM_BUILD_ROOT
+rm -f %{manifest}
+find . -type d \
+        | sed '1,2d;s,^\.,\%attr(-\,root\,root) \%dir ,' >> %{manifest}
+find . -type f \
+        | sed 's,^\.,\%attr(-\,root\,root) ,' >> %{manifest}
+find . -type l \
+        | sed 's,^\.,\%attr(-\,root\,root) ,' >> %{manifest}
+
+
 %clean
 rm -fr $RPM_BUILD_DIR/%{name}-%{version}
 rm -fr $RPM_BUILD_ROOT/%{name}-%{version}-root
 
 
-%post
-
-%postun
-
-
-%files
-%doc README
-%doc README.thai
-/usr/bin/xiterm
-/usr/bin/txiterm
-/usr/man/man1/xiterm.1
-/usr/share/gnome/apps/Utilities/txiterm.desktop
-/etc/skel/Desktop/Txiterm.kdelnk
+%files -f %{manifest}
+#%doc README
+#%doc README.thai
 
 %changelog
+* Tue Nov 27 2001 Theppitak Karoonboonyanan <thep@links.nectec.or.th>
+- use %{name}, %{version}, %{release} variables
+- rename spec to xiterm+thai.spec.in
+- use manifest
+- release version 1.04
+
 * Fri Jan 19 2001 Theppitak Karoonboonyanan <thep@links.nectec.or.th>
 - fix path for xiterm in txiterm script (Thnx: Pattara Kiatisevi)
 - fix install script for GNOME menu installation (Thnx: Sadit Sathianpaisarn)
