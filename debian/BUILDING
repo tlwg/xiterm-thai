@@ -1,0 +1,5 @@
+1. cvs checkout
+2. remove .cvsignore
+3. enable UTMP_SUPPORT in src/feature.h
+4. autoconf
+5. debuild
