@@ -2295,6 +2295,14 @@ process_x_event (XEvent * ev)
 		  case Button3:
 		    selection_extend (ev->xbutton.x, ev->xbutton.y);
 		    break;
+
+		  case Button4:
+		    scr_page (UP, TermWin.nrow / 4);
+		    break;
+
+		  case Button5:
+		    scr_page (DN, TermWin.nrow / 4);
+		    break;
 		  }
 	      buttonpress_time = ev->xbutton.time;
 	      return;
@@ -2343,15 +2351,23 @@ process_x_event (XEvent * ev)
 	  else
 #endif /* NO_SCROLLBAR_REPORT */
 	    {
-	      if (scrollbar_upButton (ev->xbutton.y))
+	      if (ev->xbutton.button == Button4)
+	        {
+		    scr_page (UP, TermWin.nrow / 4);
+	        }
+	      else if (ev->xbutton.button == Button5)
+	        {
+		    scr_page (DN, TermWin.nrow / 4);
+	        }
+	      else if (scrollbar_upButton (ev->xbutton.y))
 		{
 		  /* I would like continuous scrolling */
-		  if (scr_page (UP, 1))
+		  if (ev->xbutton.button == Button1 && scr_page (UP, 1))
 		    scrollbar_setUp ();
 		}
 	      else if (scrollbar_dnButton (ev->xbutton.y))
 		{
-		  if (scr_page (DN, 1))
+		  if (ev->xbutton.button == Button1 && scr_page (DN, 1))
 		    scrollbar_setDn ();
 		}
 	      else

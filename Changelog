@@ -1,3 +1,9 @@
+2003-03-10  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/command.c:
+	Add wheel mouse scrolling support.
+	Fix up/down button in scroll bar to accept only Button1.
+
 2003-03-01  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/command.c:
