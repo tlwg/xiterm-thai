@@ -22,6 +22,9 @@
 	cvs, one can 'make distrib' by creating symlink $(NAME)-$(VERSION)
 	pointing to xiterm+thai repository.
 
+	* configure.in:
+	Version 1.04
+
 
 2001-08-01  Chanop Silpa-Anan <chanop@debian.org>
 
