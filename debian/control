@@ -9,6 +9,7 @@ Package: xiterm+thai
 Architecture: any
 Depends: ${shlibs:Depends}, xfonts-thai-nectec
 Recommends: xfonts-thai
+Conflicts: xiterm
 Suggests: menu, nonlock
 Description: x-terminal program with Thai languague support
  xiterm+thai is an x-terminal-emulator program with Thai language

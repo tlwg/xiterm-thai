@@ -1,7 +1,13 @@
+xiterm+thai (1.06.cvs20041019) unstable; urgency=low
+
+  * Conflict with xiterm. (closes: #274773)
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Tue, 19 Oct 2004 14:39:13 +1000
+
 xiterm+thai (1.06) unstable; urgency=low
 
   * 1.06 release. (closes: #225076)
-  * Build again XFree86 4.3.0. 
+  * Build against XFree86 4.3.0. 
 
  -- Chanop Silpa-Anan <chanop@debian.org>  Wed, 25 Feb 2004 01:54:06 +1100
 
