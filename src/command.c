@@ -1207,6 +1207,7 @@ init_xlocale (void)
   XIMStyle input_style = 0;
   XIMStyles *xim_styles = NULL;
   int found;
+  XIMValuesList *ic_values = NULL;
 
   Input_Context = NULL;
 
@@ -1340,8 +1341,21 @@ init_xlocale (void)
       print_error ("Failed to create input context");
       XCloseIM (xim);
     }
-  XSetICValues(Input_Context,
-               XNStringConversionCallback, (XPointer)&String_Conv_Cb, NULL);
+  if (!XGetIMValues(xim, XNQueryICValuesList, &ic_values, NULL))
+    {
+      int i;
+      for (i = 0; i < ic_values->count_values; i++)
+        {
+          if (strcmp(ic_values->supported_values[i],
+                     XNStringConversionCallback) == 0)
+            {
+              XSetICValues(Input_Context,
+                   XNStringConversionCallback, (XPointer)&String_Conv_Cb, NULL);
+	      print_error("SCCB registered");
+              break;
+            }
+        }
+    }
 }
 
 static void
@@ -1365,15 +1379,15 @@ stringConversionCallback(XIC ic, XPointer client_data, XPointer call_data)
   scr_get_position(&row, &col);
 
   p = buff;
-  begcol = endcol = -1;
+  begcol = col + conv_data->position;
+  endcol = -1;
   switch (conv_data->direction) {
   case XIMForwardChar:
-    begcol = col + conv_data->position;
     endcol = begcol + conv_data->factor;
     break;
   case XIMBackwardChar:
-    begcol = col - conv_data->position;
-    endcol = begcol + conv_data->factor;
+    endcol = begcol;
+    begcol -= conv_data->factor;
     break;
   case XIMForwardWord:
   case XIMBackwardWord:

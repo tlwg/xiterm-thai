@@ -17,7 +17,7 @@ URL: http://linux.thai.net/linux-tle/
 Distribution: Linux TLE, Thai Linux Working Group
 Vendor: Modified by Vuthichai Ampornaramvech <vuthi@venus.dti.ne.jp>
 Packager: Theppitak Karoonboonyanan <thep@links.nectec.or.th>
-Requires: thaixfonts >= 1.1-3
+Requires: thaixfonts >= 1.1-3, XFree86 >= 4.3.0
 Summary: xiterm with Thai patch
 
 
@@ -72,6 +72,10 @@ rm -fr $RPM_BUILD_ROOT/%{name}-%{version}-root
 #%doc README.thai
 
 %changelog
+* Sat Mar 01 2003 Theppitak Karoonboonyanan <thep@linux.thai.net>
+- requires XFree86 >= 4.3.0, according to last change in string conversion
+  callback support
+
 * Tue Jan 14 2003 Theppitak Karoonboonyanan <thep@linux.thai.net>
 - fix "%install" mess in comment (rpmbuild's oddity)
 
