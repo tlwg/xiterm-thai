@@ -529,7 +529,7 @@ get_pty (void)
   ptydev = ttydev = _getpty (&fd, O_RDWR | O_NDELAY, 0622, 0);
   if (ptydev == NULL)
     goto Failed;
-#elif defined (__svr4__)
+#elif defined (__svr4__) || defined (__linux__)
   {
     extern char *ptsname ();
 
