@@ -11,6 +11,7 @@ config.status
 config.sub
 stamp-h
 stamp-h.in
+Make.common
 Makefile
 Makefile.in
 aclocal.m4
