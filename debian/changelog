@@ -1,3 +1,9 @@
+xiterm+thai (1.04.cvs20011207) unstable; urgency=low
+
+  * Fix optimization flag. (closes: #122778) 
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Fri,  7 Dec 2001 16:30:16 +1100
+
 xiterm+thai (1.04.cvs20011206) unstable; urgency=low
 
   * Default txiterm script to no xim.

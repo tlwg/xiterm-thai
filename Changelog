@@ -1,3 +1,7 @@
+2001-12-07 Chanop Silpa-Anan <chanop@debian.org>
+	* configure.in: remove -m486 from default optimization flag since
+	it prevents other architecture to compile by default.
+
 2001-11-27  Theppitak Karoonboonyanan <thep@links.nectec.or.th>
 
 	* xiterm+thai.spec -> xiterm+thai.spec.in:
