@@ -5,9 +5,9 @@ AC_INIT(src/feature.h)
 
 DATE="6 January 2002"
 LSMDATE=6JAN02
-VERSION=1.05
+VERSION=1.06
 VERNAME=xiterm+thai-${VERSION}
-MAINT="Theppitak Karoonboonyanan <thep@links.nectec.or.th>"
+MAINT="Theppitak Karoonboonyanan <thep@linux.thai.net>"
 
 AC_SUBST(DATE)
 AC_SUBST(LSMDATE)
