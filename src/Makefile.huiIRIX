@@ -1,0 +1,137 @@
+# Generated automatically from Makefile.in by configure.
+# src/Makefile.in	-*- Makefile -*-
+
+# ./Make.common.in	 -*- Makefile -*-
+
+DATE="10 July 1997"#
+LSMDATE=10JUL97#
+VERSION=1.0#
+VERNAME=xiterm-$(VERSION)#
+MAINT="Guylhem Aznar <guylhem@danmark.linux.eu.org>
+srcdir = .
+SHELL = /bin/sh
+
+# This variable makes it possible to move the installation root to another
+# directory. This is useful when you're creating a binary distribution
+# If empty, normal root will be used.
+# You can run eg. 'make install DESTDIR=/usr/copain/xiterm' to accomplish
+# that.
+
+# Installation target directories & other installation stuff
+prefix = /usr/local
+exec_prefix = ${prefix}
+# DESTDIR = /usr/local/$(VERNAME)
+binprefix =
+manprefix =
+bindir = ${exec_prefix}/bin
+mandir = ${prefix}/man/man1
+manext = 1
+
+# Tools & program stuff
+CC = gcc
+CPP = gcc -E
+RM = /usr/local/bin/rm
+RMF = /usr/local/bin/rm -f
+CP = /usr/local/bin/cp
+INSTALL = /usr/local/bin/install -c
+INSTALL_PROGRAM = /usr/local/bin/install -c -s -m 755
+INSTALL_DATA = /usr/local/bin/install -c -m 644
+# add -DBINDIR=\""$(bindir)/"\" to CPPFLAGS, if we need to spawn a program
+CFLAGS = -O2 -fno-strength-reduce
+CPPFLAGS =  #-DHAVE_LIBXPM
+LDFLAGS = 
+DEFS = -DHAVE_CONFIG_H
+LIBS = 
+XINC = 
+XLIB = -lX11  #-L/usr/local/lib -lXpm
+
+# End of Make.common
+basedir = $(srcdir)/..
+thisdir = src
+
+first_rule: all
+dummy:
+
+SRCS =	command.c debug.c graphics.c grkelot.c main.c misc.c\
+	netdisp.c screen.c scrollbar.c utmp.c xdefaults.c\
+	thai.c
+
+OBJS =	command.o debug.o graphics.o grkelot.o main.o misc.o\
+	netdisp.o screen.o scrollbar.o utmp.o xdefaults.o\
+	thai.o
+
+HDRS =	command.h debug.h defaults.h feature.h graphics.h grkelot.h\
+	main.h misc.h screen.h scrollbar.h xdefaults.h
+
+#
+# Distribution variables
+#
+
+DIST = $(HDRS) $(SRCS) Makefile.in gcc-Wall
+
+# inference rules
+.c.o:
+	$(CC) -c $(CPPFLAGS) $(XINC) -I$(basedir) $(CFLAGS) $<
+#-------------------------------------------------------------------------
+all: xiterm
+
+xiterm: VERSION.h $(OBJS)
+	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS) $(XLIB)
+
+VERSION.h:
+	echo "#define VERSION \""$(VERSION)"\"" > $@;
+
+tags: $(SRCS)
+	ctags $(SRCS)
+
+allbin: xiterm
+
+clean:
+	$(RMF) xiterm core a.out *.o *.bak *~
+
+realclean: clean
+	$(RMF) VERSION.h tags
+
+mrproper:
+	(cd $(srcdir); $(RMF) xiterm *~ *.o core a.out)
+	if test $(srcdir) = .; then $(MAKE) realclean; fi
+	(cd $(srcdir); $(RMF) Makefile)
+
+install: allbin alldoc
+	$(INSTALL_PROGRAM) xiterm $(DESTDIR)$(bindir)/$(binprefix)xiterm
+
+uninstall:
+	(cd $(bindir); $(RMF) $(binprefix)xiterm)
+
+# Semi-automatic generation of dependencies:
+# Use gcc -MM because X11 `makedepend' doesn't work on all systems
+# and it also includes system headers.
+# `semi'-automatic since dependencies are generated at distribution time.
+
+distdepend:
+	mv Makefile.in Makefile.in~
+	sed "/^# DO NOT DELETE:/,$$ d" Makefile.in~ > Makefile.in
+	echo "# DO NOT DELETE: ugly dependency list follows" >> Makefile.in
+	gcc -MM $(CPPFLAGS) $(XINC) -I$(basedir) $(SRCS) >> Makefile.in
+
+# -----------------------------------------------------------------------
+
+command.o: command.c main.h VERSION.h ./../config.h feature.h misc.h \
+ xdefaults.h command.h debug.h graphics.h grkelot.h \
+ scrollbar.h screen.h defaults.h
+debug.o: debug.c ./../config.h feature.h debug.h
+graphics.o: graphics.c main.h VERSION.h ./../config.h feature.h misc.h \
+ command.h debug.h graphics.h screen.h
+grkelot.o: grkelot.c ./../config.h feature.h grkelot.h
+main.o: main.c main.h VERSION.h ./../config.h feature.h misc.h \
+ command.h debug.h graphics.h scrollbar.h screen.h \
+ xdefaults.h defaults.h
+misc.o: misc.c main.h VERSION.h ./../config.h feature.h misc.h
+netdisp.o: netdisp.c ./../config.h feature.h
+screen.o: screen.c main.h VERSION.h ./../config.h feature.h misc.h \
+ command.h debug.h graphics.h screen.h
+scrollbar.o: scrollbar.c main.h VERSION.h ./../config.h feature.h \
+ misc.h scrollbar.h
+utmp.o: utmp.c ./../config.h feature.h
+xdefaults.o: xdefaults.c main.h VERSION.h ./../config.h feature.h \
+ misc.h debug.h defaults.h grkelot.h xdefaults.h

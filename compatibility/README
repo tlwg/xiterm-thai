@@ -1,0 +1,5 @@
+You shouldn't need theese files (except bashrc & inputrc) if you want to use
+xterm & xiterm, and you want an equal "behaviour" from both .
+
+I recommand against this since xterm _sucks_ memory, slows down your machine
+& gives no options you should *really* need ...

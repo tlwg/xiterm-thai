@@ -1,0 +1,75 @@
+# ./Makefile.in			-*- Makefile -*-
+@MCOMMON@
+basedir = $(srcdir)
+etcdir  = $(basedir)/etc
+thisdir = ./
+
+first_rule: all
+dummy:
+
+subdirs = src doc
+
+DIST =	INSTALL Make.common.in Makefile.in config.h.in configure\
+	configure.in install.sh
+
+#-------------------------------------------------------------------------
+
+all allbin alldoc tags clean:
+	@for I in ${subdirs}; do (cd $$I; ${MAKE} $@ || exit 1); done
+
+#
+# entry points for other programs
+#
+xiterm:
+	(cd src; ${MAKE})
+
+#-------------------------------------------------------------------------
+
+configure: configure.in
+	cd $(srcdir); autoconf --localdir=$(srcdir) $(srcdir)/configure.in \
+		 > configure
+	chmod 755 configure
+
+config.h.in: configure.in
+	cd $(srcdir); autoheader
+
+#install:
+#	@for I in $(subdirs); do (cd $$I; $(MAKE) DESTDIR=/usr/local \
+#		 $@ || exit 1); done
+
+install:
+	@for I in $(subdirs); do (cd $$I; $(MAKE) \
+		 $@ || exit 1); done
+
+Makefiles:
+	$(SHELL) config.status
+
+config.status:
+	if test -x config.status; then config.status --recheck; \
+	else $(SHELL) configure; fi
+
+realclean:
+	$(RMF) *~ config.cache
+	@for I in ${subdirs}; do (cd $$I; ${MAKE} $@ || exit 1); done
+
+# distclean goal is for making a clean source tree, but if you have run
+# configure from a different directory, then doesn't destroy all your
+# hardly compiled and linked stuff. That's why there is always $(srcdir)/
+# In that case most of those commands do nothing, except cleaning *~
+# and cleaning source links.
+mrproper:
+	(cd $(srcdir); $(RMF) *~ config.cache config.h config.log config.status)
+	@for I in $(subdirs); do (cd $$I; $(MAKE) $@ || exit 1); done
+	(cd $(srcdir); $(RMF) Makefile Make.common)
+
+../$(VERNAME).tar.gz:
+	(cd ..; tar cvf - $(VERNAME) | gzip -f9 > $(VERNAME).tar.gz)
+
+tar.gz:  ../$(VERNAME).tar.gz
+
+uuencode: tar.gz
+	uuencode ../$(VERNAME).tar.gz $(VERNAME).tar.gz > ../$(VERNAME).tgz.uu
+
+distrib: mrproper configure config.h.in uuencode
+
+# ------------------------------------------------------------------------

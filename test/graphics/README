@@ -1,0 +1,7 @@
+This is an example of rxvt graphics.
+
+To include this, add :
+
+#define RXVT_GRAPHICS
+
+in src/features.h

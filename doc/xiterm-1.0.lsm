@@ -1,0 +1,45 @@
+Begin3
+Title:		xiterm
+Version:	1.0
+Entered-date:	10JUL97
+
+Description:	Xiterm stands for X terminal international ;
+		Xiterm is an 8-bit clean, colour xterm replacement that uses
+		significantly less memory than a conventional xterm.
+
+		However, it doesn't support toolkit configurability or Tek
+		graphics.
+
+		Some features can be removed at compile-time to reflect your
+		needs : ANSI-color, bold/blink attributes, modify
+ 		foreground/background colours, scrollbars with arrow buttons,
+ 		kanji and greek support, printer-pipe, XPM backgounds
+		with on-the-fly scaling, user-definable menus.
+
+Keywords:	xiterm rxvt colour color kanji xterm X11 vt100 xpm menu
+		terminal-emulator
+
+Author:		John Bovey [Univ. Kent at Canterbury] was the creator of
+		the original xvt .
+		Rob Nation [Lockheed] re-wrote most of xvt to make a
+		substantiallly enhanced version called rxvt (Rob's xvt) .
+		Mark Olesen [Queen's Univ. at Kingston] made various
+		improvements and cleanups .
+		Guylhem Aznar [Purpan Univ. at Toulouse, France] cleaned up
+		up a bit and added full PC keyboard support : Home, End,
+		Page up (...) + Keypad support with Numlock & Numlock Off .
+
+Maintained-by:	Guylhem Aznar <guylhem@danmark.linux.eu.org>
+		Will someone else volunteer ?
+
+Primary-site:	ftp.nuclecu.unam.mx /linux/local/rxvt
+		205k	rxvt-2.20.tar.gz
+
+Alternate-site:	tsx-11.mit.edu /pub/linux/sources/usr.bin.X11
+		205k	rxvt-2.20.tar.gz
+
+Platforms:	X11
+
+Copying-policy:	GPL
+
+End

@@ -1,0 +1,8 @@
+# Move to ~/.inputrc : international support
+set meta-flag on
+set convert-meta off
+set output-meta on
+
+# Home & End support
+"\e[1~":beginning-of-line
+"\e[4~":end-of-line

@@ -1,0 +1,40 @@
+2001-02-22  Theppitak Karoonboonyanan <thep@links.nectec.or.th>
+
+	* src/command.c, src/screen.c :
+	  Add XNStringConversionCallback support for experiment with
+	  the new Thai XIM.
+
+2001-01-02  Theppitak Karoonboonyanan <thep@links.nectec.or.th>
+
+	* src/command.c :
+	  Make XMODIFIERS come before "@im=none" (by changing the order
+	  of the calls to XLocaleModifiers()).
+	* Make.common.in, src/main.c :
+	  Release version 1.04pre1
+
+2001-01-01  Theppitak Karoonboonyanan <thep@links.nectec.or.th>
+
+	* xiterm+thai.spec :
+	  Use variables in sources, path names; use BuildRoot
+	* Make.common.in :
+	  Add -D option to INSTALL_PROGRAM and INSTALL_DATA to have directory
+	  prepared
+
+2000-11-18  Theppitak Karoonboonyanan <thep@links.nectec.or.th>
+
+	* src/command.c :
+	  Add XSetICFocus() to force initialization of Input_Context which is
+	  necessary for XIM tasks.
+	* src/command.c, src/xdefaults.c :
+	  Add -tim option (thai_im resource) for specifying Thai XIM mode.
+	  
+2000-11-09  Theppitak Karoonboonyanan <thep@links.nectec.or.th>
+
+	* Changelog :
+	  Create GNUish changelog to keep track of changes
+	* src/main.c :
+	  Add setlocale() as per Lucy's contribution to support new Thai XKB
+	  map of XFree86 4.0.1 which conforms to <X11/keysymdef.h>
+	* Make.common.in, src/main.c :
+	  Release version 1.03
+
