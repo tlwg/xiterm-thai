@@ -1,8 +1,15 @@
 #! /bin/sh
 # Chanop Silpa-Anan <chanop@debian.org>
 
+if test "x$XMODIFIERS" = "x" ; then
+	XMODIFIERS="@im=none"
+fi
+LANG=th_TH
+
+export LANG XMODIFIERS
+
 if [ $# = 0 ]; then
-  LANG=th_TH /usr/bin/xiterm -fn nectec18 -cursorColor yellow -cursorColorThai red
+  exec /usr/bin/xiterm -fn nectec18 -cursorColor yellow -cursorColorThai red
 else
-  LANG=th_TH /usr/bin/xiterm -fn nectec18 $*
+  exec /usr/bin/xiterm -fn nectec18 $*
 fi
