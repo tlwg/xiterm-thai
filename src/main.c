@@ -1372,7 +1372,7 @@ xterm_seq (int op, char *str)
     case XTerm_title:
 #ifdef STATIC_TITLE
 #ifdef THAI
-       set_title ("X Terminal International (THAI) 1.04pre2");
+       set_title ("X Terminal International (THAI) 1.05");
 #else
        set_title ("X Terminal International ¹·°");
 #endif
