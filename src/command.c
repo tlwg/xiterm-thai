@@ -1341,7 +1341,7 @@ init_xlocale (void)
       XCloseIM (xim);
     }
   XSetICValues(Input_Context,
-               XNStringConversionCallback, (XPointer)&String_Conv_Cb);
+               XNStringConversionCallback, (XPointer)&String_Conv_Cb, NULL);
 }
 
 static void
@@ -1351,24 +1351,29 @@ stringConversionCallback(XIC ic, XPointer client_data, XPointer call_data)
   char buff[255];
   char *p;
   int row, col;
+  int begcol, endcol;
   int i;
 
   conv_data = (XIMStringConversionCallbackStruct *)call_data;
 
+  if (conv_data->operation != XIMStringConversionRetrieval) {
+    /* not support Substitution */
+    conv_data->text = NULL;
+    return;
+  }
+
   scr_get_position(&row, &col);
-  col += conv_data->position;
 
   p = buff;
+  begcol = endcol = -1;
   switch (conv_data->direction) {
   case XIMForwardChar:
-    for (i = conv_data->factor; i > 0 && col < TermWin.ncol; --i, ++col) {
-      *p++ = scr_get_char_rc(row, col);
-    }
+    begcol = col + conv_data->position;
+    endcol = begcol + conv_data->factor;
     break;
   case XIMBackwardChar:
-    for (i = conv_data->factor; i > 0 && col >= 0; --i, --col) {
-      *p++ = scr_get_char_rc(row, col);
-    }
+    begcol = col - conv_data->position;
+    endcol = begcol + conv_data->factor;
     break;
   case XIMForwardWord:
   case XIMBackwardWord:
@@ -1384,7 +1389,11 @@ stringConversionCallback(XIC ic, XPointer client_data, XPointer call_data)
     break;
   }
 
-  if (p > buff) {
+  if (0 <= begcol && begcol < endcol && endcol <= TermWin.ncol) {
+    while (begcol < endcol) {
+      *p++ = scr_get_char_rc(row, begcol++);
+    }
+
     conv_data->text = (XIMStringConversionText *)
                         malloc(sizeof(XIMStringConversionText));
     conv_data->text->length = p - buff;
@@ -1392,9 +1401,6 @@ stringConversionCallback(XIC ic, XPointer client_data, XPointer call_data)
     conv_data->text->encoding_is_wchar = False;
     conv_data->text->string.mbs = (char *) malloc(p - buff);
     memcpy(conv_data->text->string.mbs, buff, p - buff);
-  }
-  if (conv_data->operation == XIMStringConversionSubstitution) {
-    /* FIXME : remove chars from buffer */
   }
 }
 #endif /* NO_XLOCALE */

@@ -1,3 +1,14 @@
+2002-12-31  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/command.c:
+	Fix XSetICValues() missing trailing NULL argument.
+
+	* src/command.c:
+	Re-implement stringConversionCallback() according to clarified
+	protocol for backward retrievals.
+	Add XIMStringConversionSubstitution checking (black magic quietly
+	agreed by Thai XIM in XFree86).
+
 2002-01-06  Theppitak Karoonboonyanan <thep@links.nectec.or.th>
 	* src/command.c:
 	Fix duplicated events bug for special keys, due to uninitialized
