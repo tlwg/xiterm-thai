@@ -5,7 +5,10 @@
 	substituted at configure time. Use manifest
 
 	* configure.in:
-	Generate xiterm.spec.
+	Add code to xiterm.spec generation.
+
+	* src/feature.h:
+	Comment out UTMP_SUPPORT, as it does not compile on RH7.2.
 
 
 2001-08-01  Chanop Silpa-Anan <chanop@debian.org>
