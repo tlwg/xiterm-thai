@@ -10,9 +10,9 @@ Architecture: any
 Depends: ${shlibs:Depends}, xfonts-thai-nectec
 Recommends: xfonts-thai
 Suggests: menu, nonlock
-Description: x-terminal program with thai languague support
- xiterm+thai is an x-terminal-emulator program with thai language
- support. It has thai keyboard input support built-in. You could
- also use X11 XKB extension to input thai character.
+Description: x-terminal program with Thai languague support
+ xiterm+thai is an x-terminal-emulator program with Thai language
+ support. It has built-in Thai keyboard input support. You could
+ also use X11 XKB extension to input Thai character.
  .
  Thai font is needed to display Thai character.

@@ -17,7 +17,7 @@ build-stamp:
 	sed -e "s/^#define HAVE_UTMPX_H 1/\/* #undef HAVE_UTMPX_H *\//" config.h > config.h.tmp
 	mv config.h.tmp config.h
 	# Add here commands to compile the package.
-	$(MAKE)
+	$(MAKE) -j2
 
 	touch build-stamp
 

@@ -1,3 +1,10 @@
+xiterm+thai (1.05.cvs20020221) unstable; urgency=low
+
+  * New 1.05 release. 
+  * Fix package desscription. (closes: #125546)
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Thu, 21 Feb 2002 23:36:02 +1100
+
 xiterm+thai (1.04.cvs20011207) unstable; urgency=low
 
   * Fix optimization flag. (closes: #122778) 
