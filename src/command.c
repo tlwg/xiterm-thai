@@ -351,7 +351,7 @@ static XIC Input_Context;	/* input context */
 static void stringConversionCallback(
     XIC ic, XPointer client_data, XPointer call_data
 );
-static XICCallback String_Conv_Cb = { 0, &stringConversionCallback };
+static XICCallback String_Conv_Cb = { 0, (XICProc)&stringConversionCallback };
 #endif /* NO_XLOCALE */
 
 /* command input buffering */
@@ -1441,7 +1441,7 @@ lookup_key (XEvent * ev)
   {NULL, 0};
   static unsigned char kbuf[KBUFSZ];
   int ctrl, meta, shft, len;
-  KeySym keysym;
+  KeySym keysym = 0;
 
   /*
    * use Num_Lock to toggle Keypad on/off.  If Num_Lock is off, allow an
