@@ -1,3 +1,10 @@
+xiterm+thai (1.06) unstable; urgency=low
+
+  * 1.06 release. (closes: #225076)
+  * Build again XFree86 4.3.0. 
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Wed, 25 Feb 2004 01:54:06 +1100
+
 xiterm+thai (1.05.cvs20020221) unstable; urgency=low
 
   * New 1.05 release. 

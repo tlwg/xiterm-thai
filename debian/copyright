@@ -1,8 +1,11 @@
-It was checked out from :pserver:anonymous@thailinux.gits.net.th:/home/cvs
+It was checked out from :pserver:anonymous@linux.thai.net:/home/cvs
 by cvs co xiterm+thai modules
 
-Upstream Author(s): Vuthichai Ampornaramveth (วุฒิชัย อัมพรอร่ามเวทย์) <vuthi@venus.dti.ne.jp>
-                    Theppitak Karoonboonyanan <theppitak@nectec.or.th>
+Upstream Authors:
+
+  Vuthichai Ampornaramveth (วุฒิชัย อัมพรอร่ามเวทย์) <vuthi@venus.dti.ne.jp>
+  Theppitak Karoonboonyanan <theppitak@nectec.or.th>
+
 Copyright:
 
 xvt original copyright was "Do what you want, but can't make money on it.".
@@ -10,7 +13,8 @@ Rxvt had the same copyright since it was based on xvt.
 xiterm moved to GPL with autorization from xvt's original author.
 xiterm+thai is also GPL.
 
-You are free to distributes this software under the terms of the GNU General Public License.
-Under Debian GNU/Linux systems, the complete text on the GNU General Public
-License can be found in /usr/share/common-licenses/GPL file.
+You are free to distributes this software under the terms of the
+GNU General Public License. Under Debian GNU/Linux systems, the
+complete text on the GNU General Public License can be found in
+/usr/share/common-licenses/GPL file.
 

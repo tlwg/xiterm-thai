@@ -352,7 +352,7 @@
  *	for BSD-type systems, to define where the tty table is located
  *	if it isn't /etc/ttytab
  *----------------------------------------------------------------------*/
-/* #define UTMP_SUPPORT */
+#define UTMP_SUPPORT
 #ifdef UTMP_SUPPORT
 #ifndef UTMP_FILENAME
 /* #  define UTMP_FILENAME      "/var/adm/utmp" */
