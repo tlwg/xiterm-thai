@@ -44,7 +44,7 @@ install -D -m 644 %{SOURCE2} $RPM_BUILD_ROOT/usr/share/gnome/apps/Utilities/txit
 install -D -m 644 %{SOURCE3} $RPM_BUILD_ROOT/etc/skel/Desktop/Txiterm.kdelnk
 
 # __os_install_post is implicitly expanded after the
-# %install section... do it now, and then disable it,
+# install section... do it now, and then disable it,
 # so all work is done before building manifest.
 
 %{?__os_install_post}
@@ -72,6 +72,9 @@ rm -fr $RPM_BUILD_ROOT/%{name}-%{version}-root
 #%doc README.thai
 
 %changelog
+* Tue Jan 14 2003 Theppitak Karoonboonyanan <thep@linux.thai.net>
+- fix "%install" mess in comment (rpmbuild's oddity)
+
 * Tue Nov 27 2001 Theppitak Karoonboonyanan <thep@links.nectec.or.th>
 - use %{name}, %{version}, %{release} variables
 - rename spec to xiterm+thai.spec.in

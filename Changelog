@@ -1,3 +1,8 @@
+2003-01-14  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* xiterm+thai.spec.in:
+	Fix "%install" mess in comment (rpmbuild oddity).
+
 2002-12-31  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/command.c:
