@@ -1,0 +1,20 @@
+# Copy to ~/.bashrc: executed by bash for non-login shells.
+
+PATH="/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:/usr/local/bin"
+PS1="(\u@\h:\W)# "
+
+# International options
+LC_CTYPE=ISO-8859-1
+LESSCHARSET=latin1
+
+# Nation specific options
+# LC_ALL=fr_FR
+# LANG=fr
+# MANPATH=/usr/man/fr_FR
+export PATH PS1 LC_CTYPE LESSCHARSET LC_ALL LANG MANPATH
+
+alias q="cd .."
+alias ll="ls --color=y -l -a -N"
+alias d="ls --color=y"
+
+stty erase ^?

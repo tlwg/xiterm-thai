@@ -1,0 +1,47 @@
+Begin3
+Title:		xiterm
+Version:	@VERSION@
+Entered-date:	@LSMDATE@
+
+Description:	xiterm is an 8-bit clean, colour xterm replacement that uses
+		significantly less memory than a conventional xterm, mostly
+		since it doesn't support toolkit configurability or Tek
+		graphics, but also since features can be removed at
+		compile-time to reflect your needs.  Some xiterm features
+		(compilation dependent): ANSI-color, bold/blink attributes
+		modify foreground/background colours, scrollbars with arrow
+		buttons, kanji and greek support, printer-pipe, XPM
+		backgounds with on-the-fly scaling, user-definable menus.
+
+		The distribution also includes rclock, the smaller/better
+		xclock replacement with appointment scheduling and xbiff
+		functionality.
+
+Keywords:	xiterm colour color kanji xterm X11 vt100 terminal-emulator xpm
+
+Author:		* John Bovey [Univ. Kent at Canterbury] was the creator of
+		  the original xvt.
+
+		* Rob Nation [Lockheed] re-wrote most of xvt to make a
+		  substantiallly enhanced version called rxvt (Rob's xvt)
+		  and also wrote rclock (Rob's clock).
+
+		* Mark Olesen [Queen's Univ. at Kingston] made various
+		  improvements and cleanups.
+
+		* Guylhem Aznar [Purpan Univ. at Toulouse] renamed rxvt to
+		  xiterm, did the same as Mark Olesen and added full keyboard
+		  support for the PC102 .
+
+Maintained-by:	@MAINT@
+
+Primary-site:	www.linux-france.com
+		205k	xiterm-@VERSION@.tar.gz
+
+Original-site:
+
+Platforms:	requires X11 installed
+
+Copying-policy:	GPL
+
+End

@@ -1,0 +1,46 @@
+# doc/Makefile.in	-*- Makefile -*-
+@MCOMMON@
+basedir = $(srcdir)/..
+thisdir = doc
+
+first_rule: all
+dummy:
+
+#
+# Distribution variables
+#
+
+DIST =	Makefile.in README.greek README.xvt FAQ TODO \
+	xiterm.ref xterm.seq xiterm.1.in LSM.in\
+	menu.sh jedmenu.sl
+
+#-------------------------------------------------------------------------
+
+all:	alldoc
+
+xiterm.1: xiterm.1.in
+	sed 's%@VERSION@%$(VERSION)%g;s%@DATE@%$(DATE)%g;s%@MAINT@%$(MAINT)%g' $@.in > $@
+
+LSM: LSM.in
+	sed 's%@VERSION@%$(VERSION)%g;s%@LSMDATE@%$(LSMDATE)%g;s%@MAINT@%$(MAINT)%g' $@.in > $@
+
+tags allbin:
+
+alldoc:	xiterm.1 LSM
+
+clean:
+	$(RMF) LSM xiterm.1 *~
+
+realclean: clean
+
+mrproper:
+	(cd $(srcdir); $(RMF) LSM xiterm.1 *~)
+	(cd $(srcdir); $(RMF) Makefile)
+
+install: alldoc
+	$(INSTALL_DATA) xiterm.1 $(DESTDIR)$(mandir)/$(manprefix)xiterm.$(manext)
+
+uninstall:
+	-cd $(mandir); $(RMF) $(manprefix)xiterm.$(manext)
+
+# ------------------------------------------------------------------------

@@ -1,0 +1,15 @@
+This directory contains :
+color : shell script to test xiterm color's abitlity
+ISO-8859-1 : a test file with some ISO-8859-1 chars : accents, signs ...
+
+-------------------------------------------------------------------------------
+
+After compiling, launch a xiterm and type :
+
+bash# test/color
+
+-> Your screen should get full of colors
+
+bash# cat test/ISO-8859-1
+
+-> You should see some accentuated chars & special signs

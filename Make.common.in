@@ -1,0 +1,46 @@
+# ./Make.common.in	 -*- Makefile -*-
+
+DATE="10 July 1997"#
+LSMDATE=10JUL97#
+VERSION=1.04pre2#
+VERNAME=xiterm+thai-$(VERSION)#
+MAINT="Guylhem Aznar <guylhem@danmark.linux.eu.org>
+srcdir = @srcdir@
+VPATH  = @srcdir@
+SHELL = /bin/sh
+
+# This variable makes it possible to move the installation root to another
+# directory. This is useful when you're creating a binary distribution
+# If empty, normal root will be used.
+# You can run eg. 'make install DESTDIR=/usr/copain/xiterm' to accomplish
+# that.
+
+# Installation target directories & other installation stuff
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+# DESTDIR = /usr/local/$(VERNAME)
+binprefix =
+manprefix =
+bindir = @bindir@
+mandir = @mandir@/man1
+manext = 1
+
+# Tools & program stuff
+CC = @CC@
+CPP = @CPP@
+RM = @RM@
+RMF = @RM@ -f
+CP = @CP@
+INSTALL = @INSTALL@
+INSTALL_PROGRAM = @INSTALL@ -D -s -m 755
+INSTALL_DATA = @INSTALL@ -D -m 644
+# add -DBINDIR=\""$(bindir)/"\" to CPPFLAGS, if we need to spawn a program
+CFLAGS = @CFLAGS@
+CPPFLAGS = @CPPFLAGS@ #-DHAVE_LIBXPM
+LDFLAGS = @LDFLAGS@
+DEFS = @DEFS@
+LIBS = @LIBS@
+XINC = @X_CFLAGS@ #-I/usr/local/include
+XLIB = @X_LIBS@ @X_PRE_LIBS@ -lX11 @X_EXTRA_LIBS@ #-L/usr/local/lib -lXpm
+
+# End of Make.common

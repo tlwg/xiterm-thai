@@ -1,0 +1,2 @@
+Any weird iso9995-3 char. (ex : Greek_OMEGA) defined on the xkb keytable will
+disable 8 bits support when entered
