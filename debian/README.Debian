@@ -1,0 +1,20 @@
+xiterm+thai for Debian
+----------------------
+
+This is an xterm variant with Thai support that I find it usable. You can
+either use the built-in key "Ctrl-Space" to change keyboard between English 
+and Thai keyboard, or you could use xkb extension in X instead.
+
+To use xkb in X, you should use th map from XFree 4.0.1. The xkb map from
+3.3.6 use an old latin hack which is not compatible with xim.
+
+To use xkb you need to launch xiterm with environment LANG=th_TH for example
+
+$LANG=th_TH xiterm &
+
+or just call the txiterm wrapper script.
+
+
+
+
+ -- Chanop Silpa-Anan <chanop@debian.org> --

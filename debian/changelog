@@ -1,0 +1,117 @@
+xiterm+thai (1.04.cvs) unstable; urgency=low
+
+  * Finally, debian directory is merged into upstream cvs
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Mon,  2 Apr 2001 16:28:13 +1000
+
+xiterm+thai (1.04pre2-1) unstable; urgency=low
+
+  * New upstream release 
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Thu, 22 Feb 2001 23:54:56 +1100
+
+xiterm+thai (1.04pre1-2) unstable; urgency=low
+
+  * Remove the usage of dpkg-statoveride from maintainer scripts
+  * Bump Standards-Version to 3.5.1 
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Mon, 19 Feb 2001 22:17:07 +1100
+
+xiterm+thai (1.04pre1-1) unstable; urgency=low
+
+  * New upstream release
+  * Thai xim is folded into the release
+  * Compile with utmp support
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Mon, 22 Jan 2001 23:08:59 +1100
+
+xiterm+thai (1.03-1.1) unstable; urgency=low
+
+  * Add Thai xim patch
+  * Never been uploaded to debian
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Tue, 21 Nov 2000 16:36:12 +1100
+
+xiterm+thai (1.03-1) unstable; urgency=low
+
+  * New upsteam release
+  * Patch for X locale setting and new Thai xkb keymap is incorporated upstream
+  * Meta package xfonts-thai is uploaded and installed in archives (closes: #74171)
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Fri, 10 Nov 2000 14:33:57 +1100
+
+xiterm+thai (1.02-9) unstable; urgency=low
+
+  * Recompile with XFree 4.0.1d and libc6 2.1.96
+  * Patch the keyboard input for new Thai xkb map distributed with XFree 4.0.1d
+  * Add LANG=th_TH in txiterm wrapper script for Thai locale
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Fri, 10 Nov 2000 14:33:29 +1100
+
+xiterm+thai (1.02-8.1) unstable; urgency=low
+
+  * Add debhelper to Build-Depends
+  * Use debian standard version 3.2.1
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Thu,  7 Sep 2000 19:50:19 +1100
+
+xiterm+thai (1.02-8) unstable; urgency=low
+
+  * Fix extended description; was rejected from uploading.
+  * Use Standdards-Version: 3.1.1
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Tue, 11 Jul 2000 03:05:18 +1000
+
+xiterm+thai (1.02-7) unstable; urgency=low
+
+  * Export TERM=xterm-color instead of xterm-debian, since I had a few problems 
+  * using ncurses program, ie mutt, dselect. Since ncurses 5.0-5, xterm-color is
+  * conformed to Debian keyboard polocy
+
+ -- Chanop Silpa-Anan (Tim) <chanop@writeme.com>  Sun, 20 Feb 2000 15:53:15 +1100
+
+xiterm+thai (1.02-6) unstable; urgency=low
+
+  * Change scroll bar size to 10
+
+ -- Chanop Silpa-Anan (Tim) <chanop@writeme.com>  Wed,  9 Feb 2000 12:19:57 +1100
+
+xiterm+thai (1.02-5) unstable; urgency=low
+
+  * Fix wrapper txiterm to point to /usr/bin/xiterm
+  * Fix default $TERM from xterm-color to xterm-debian
+  * Fix control file, depends on xfonts-thai-nectec
+
+ -- Chanop Silpa-Anan (Tim) <chanop@writeme.com>  Sat, 29 Jan 2000 01:29:03 +1100
+
+xiterm+thai (1.02-4) unstable; urgency=low
+
+  * Repackage using pristine source
+  * Move to Standards-Version: 3.0.1
+  * Move binary from /usr/X11R6/bin to /usr/bin
+
+ -- Chanop Silpa-Anan (Tim) <chanop@writeme.com>  Fri, 28 Jan 2000 14:16:04 +1100
+
+xiterm+thai (1.02-3) unstable; urgency=low
+
+  * Add x-terminal-emulater alternative
+  * Make the package conform to Debian policy
+  * fix minor debian/rules file
+
+ -- Chanop Silpa-Anan (Tim) <chanop@writeme.com>  Fri, 28 Jan 2000 14:08:05 +1100
+
+xiterm+thai (1.02-2) unstable; urgency=low
+
+  * move to use xfonts-thai instead of thaifonts
+
+ -- Chanop Silpa-Anan (Tim) <chanop@writeme.com>  Mon,  10 January 2000  01:00:00 +1000
+
+xiterm+thai (1.02-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Chanop Silpa-Anan <chanop@syseng.anu.edu.au>  Mon,  6 Sep 1999 21:09:48 +1000
+
+Local variables:
+mode: debian-changelog
+End:

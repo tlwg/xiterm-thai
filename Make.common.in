@@ -1,10 +1,10 @@
 # ./Make.common.in	 -*- Makefile -*-
 
-DATE="10 July 1997"#
-LSMDATE=10JUL97#
-VERSION=1.04pre2#
+DATE="2 April 2001"#
+LSMDATE=2APR01#
+VERSION=1.04.cvs#
 VERNAME=xiterm+thai-$(VERSION)#
-MAINT="Guylhem Aznar <guylhem@danmark.linux.eu.org>
+MAINT="Theppitak Karoonboonyanan <theppitak@nectec.or.th>"
 srcdir = @srcdir@
 VPATH  = @srcdir@
 SHELL = /bin/sh

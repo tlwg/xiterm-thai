@@ -1,0 +1,8 @@
+#! /bin/sh
+# Chanop Silpa-Anan <chanop@debian.org>
+
+if [ $# = 0 ]; then
+  LANG=th_TH /usr/bin/xiterm -fn nectec18 -cursorColor yellow -cursorColorThai red
+else
+  LANG=th_TH /usr/bin/xiterm -fn nectec18 $*
+fi

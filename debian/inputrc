@@ -1,0 +1,16 @@
+# for 8 bit input for bash
+
+set meta-flag on
+set convert-meta off
+set output-meta on
+
+#set home and end key for bash
+
+$if  term=xterm || term=xterm-debian
+#xterm behavior
+ "\e[H": beginning-of-line
+ "\e[F": end-of-line
+#xiterm behavior
+ "\e[1~": beginning-of-line
+ "\e[4~": end-of-line
+$endif

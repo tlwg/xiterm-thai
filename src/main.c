@@ -857,10 +857,10 @@ Create_Windows (int argc, char *argv[])
 					PixColors[bgColor],
 					PixColors[fgColor]);
 
-  xterm_seq (XTerm_title, rs_title);
-  xterm_seq (XTerm_iconName, rs_iconName);
+  xterm_seq (XTerm_title, (char*) rs_title);
+  xterm_seq (XTerm_iconName, (char*) rs_iconName);
   /* ignore warning about discarded `const' */
-  classHint.res_name = rs_name;
+  classHint.res_name = (char*) rs_name;
   classHint.res_class = APL_CLASS;
   wmHint.input = True;
   wmHint.initial_state = (Options & Opt_iconic ? IconicState : NormalState);

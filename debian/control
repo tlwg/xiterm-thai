@@ -1,0 +1,18 @@
+Source: xiterm+thai
+Section: x11
+Priority: optional
+Maintainer: Chanop Silpa-Anan <chanop@debian.org>
+Standards-Version: 3.5.1
+Build-Depends: xlib6g-dev, debhelper
+
+Package: xiterm+thai
+Architecture: any
+Depends: ${shlibs:Depends}, xfonts-thai-nectec
+Recommends: xfonts-thai
+Suggests: menu, nonlock
+Description: x-terminal program with thai languague support
+ xiterm+thai is an x-terminal-emulator program with thai language
+ support. It has thai keyboard input support built-in. You could
+ also use X11 XKB extension to input thai character.
+ .
+ Thai font is needed to display Thai character.

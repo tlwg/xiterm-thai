@@ -139,7 +139,7 @@
 /* #define NO_BRIGHTCOLOR */
 /* #define NO_BOLDUNDERLINE */
 #define NO_BOLDOVERSTRIKE
-#define NO_BOLDFONT
+/* #define NO_BOLDFONT */
 /* #define NO_SECONDARY_SCREEN */
 /* #define REFRESH_PERIOD       1 */
 /* #define USE_XCOPYAREA */
@@ -173,7 +173,7 @@
 /* #define NO_RESOURCES */
 #define USE_XGETDEFAULT
 #ifndef XAPPLOADDIR
-#define XAPPLOADDIR	"/usr/lib/X11/app-defaults"
+#define XAPPLOADDIR	"/etc/X11/app-defaults"
 #endif
 /* #define OFFIX_DND */
 #define STATIC_TITLE
@@ -217,7 +217,7 @@
 /* #define HOTKEY_CTRL */
 /* #define HOTKEY_META */
 
-/* #define LINUX_KEYS */
+#define LINUX_KEYS
 #define KEYSYM_RESOURCE
 /* #define NO_XLOCALE */
 /*}}} */
@@ -272,7 +272,7 @@
  *----------------------------------------------------------------------*/
 /* #define XTERM_SCROLLBAR */
 #define SCROLLBAR_RIGHT
-#define SB_WIDTH 12
+#define SB_WIDTH 10
 /*}}} */
 
 /*{{{ multi-lingual: */
@@ -352,7 +352,7 @@
  *	for BSD-type systems, to define where the tty table is located
  *	if it isn't /etc/ttytab
  *----------------------------------------------------------------------*/
-/* #define UTMP_SUPPORT */
+#define UTMP_SUPPORT
 #ifdef UTMP_SUPPORT
 #ifndef UTMP_FILENAME
 /* #  define UTMP_FILENAME      "/var/adm/utmp" */
