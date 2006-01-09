@@ -1,3 +1,9 @@
+xiterm+thai (1.06.cvs20060109) unstable; urgency=low
+
+  * Fix BuildDepends: xlibs-dev. (closes: #346928)
+
+ -- Chanop Silpa-Anan <chanop@debian.org>  Mon,  9 Jan 2006 13:21:37 +1100
+
 xiterm+thai (1.06.cvs20041019) unstable; urgency=low
 
   * Conflict with xiterm. (closes: #274773)

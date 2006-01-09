@@ -6,7 +6,7 @@
 #export DH_VERBOSE=1
 
 # This is the debhelper compatability version to use.
-export DH_COMPAT=1
+export DH_COMPAT=4
 
 build: build-stamp
 build-stamp:
@@ -37,11 +37,11 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
-	# Add here commands to install the package into debian/tmp.
-	$(MAKE) install DESTDIR=`pwd`/debian/tmp
+	# Add here commands to install the package into debian/xiterm+thai.
+	$(MAKE) install DESTDIR=`pwd`/debian/xiterm+thai
 	install -o root -g root -m 0755 \
-	  debian/txiterm debian/tmp/usr/bin
-	(cd debian/tmp/usr/share/man/man1 ; ln -s xiterm.1 txiterm.1)
+	  debian/txiterm debian/xiterm+thai/usr/bin
+	(cd debian/xiterm+thai/usr/share/man/man1 ; ln -s xiterm.1 txiterm.1)
 
 
 # Build architecture-independent files here.
@@ -54,14 +54,14 @@ binary-arch: build install
 	dh_testroot
 	dh_installdocs
 	dh_installmenu
-	dh_installmanpages
+	dh_installman
 	dh_installchangelogs 
 	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
-	chown :utmp debian/tmp/usr/bin/xiterm
-	chmod g+s debian/tmp/usr/bin/xiterm
+	chown :utmp debian/xiterm+thai/usr/bin/xiterm
+	chmod g+s debian/xiterm+thai/usr/bin/xiterm
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol

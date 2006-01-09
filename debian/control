@@ -2,13 +2,13 @@ Source: xiterm+thai
 Section: x11
 Priority: optional
 Maintainer: Chanop Silpa-Anan <chanop@debian.org>
-Standards-Version: 3.6.1
-Build-Depends: xlibs-dev, debhelper
+Standards-Version: 3.6.2
+Build-Depends: libx11-dev, libxpm-dev, libxt-dev, x-dev, debhelper
 
 Package: xiterm+thai
 Architecture: any
-Depends: ${shlibs:Depends}, xfonts-thai-nectec
-Recommends: xfonts-thai
+Depends: ${shlibs:Depends}
+Recommends: xfonts-thai-nectec, xfonts-thai
 Conflicts: xiterm
 Suggests: menu, nonlock
 Description: x-terminal program with Thai languague support

@@ -1,3 +1,7 @@
+2006-01-09 Chanop Silpa-Anan <chanop@debian.org>
+	* debian/*:
+	Fix xlibs-dev bug.
+
 2004-02-25 Chanop Silpa-Anan <chanop@debian.org>
 	* debian/*:
 	Update and upload debian package.
