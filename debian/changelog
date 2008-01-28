@@ -1,3 +1,11 @@
+xiterm+thai (1.06.cvs20060109-1) unstable; urgency=low
+
+  * QA upload.
+  * Package is orphaned (#357872); set maintainer to Debian QA Group.
+  * debian/txiterm: Handle arguments containing whitespace.
+
+ -- Matej Vela <vela@debian.org>  Wed,  5 Apr 2006 13:20:55 +0200
+
 xiterm+thai (1.06.cvs20060109) unstable; urgency=low
 
   * Fix BuildDepends: xlibs-dev. (closes: #346928)
