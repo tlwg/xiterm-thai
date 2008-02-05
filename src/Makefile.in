@@ -27,9 +27,9 @@ DIST = $(HDRS) $(SRCS) Makefile.in gcc-Wall
 .c.o:
 	$(CC) -c $(CPPFLAGS) $(XINC) -I$(basedir) $(CFLAGS) $<
 #-------------------------------------------------------------------------
-all: xiterm
+all: xiterm+thai
 
-xiterm: VERSION.h $(OBJS)
+xiterm+thai: VERSION.h $(OBJS)
 	$(CC) $(LDFLAGS) -o $@ $(OBJS) $(LIBS) $(XLIB)
 
 VERSION.h:
@@ -38,26 +38,26 @@ VERSION.h:
 tags: $(SRCS)
 	ctags $(SRCS)
 
-allbin: xiterm
+allbin: xiterm+thai
 
 alldoc:
 
 clean:
-	$(RMF) xiterm core a.out *.o *.bak *~
+	$(RMF) xiterm+thai core a.out *.o *.bak *~
 
 realclean: clean
 	$(RMF) VERSION.h tags
 
 mrproper:
-	(cd $(srcdir); $(RMF) xiterm *~ *.o core a.out)
+	(cd $(srcdir); $(RMF) xiterm+thai *~ *.o core a.out)
 	if test $(srcdir) = .; then $(MAKE) realclean; fi
 	(cd $(srcdir); $(RMF) Makefile)
 
 install: allbin alldoc
-	$(INSTALL_PROGRAM) xiterm $(DESTDIR)$(bindir)/$(binprefix)xiterm
+	$(INSTALL_PROGRAM) xiterm+thai $(DESTDIR)$(bindir)/$(binprefix)xiterm+thai
 
 uninstall:
-	(cd $(bindir); $(RMF) $(binprefix)xiterm)
+	(cd $(bindir); $(RMF) $(binprefix)xiterm+thai)
 
 # Semi-automatic generation of dependencies:
 # Use gcc -MM because X11 `makedepend' doesn't work on all systems

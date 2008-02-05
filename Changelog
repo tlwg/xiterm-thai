@@ -1,5 +1,10 @@
 2008-02-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/Makefile.in: Rename binary from xiterm to xiterm+thai, to avoid
+	conflict with openi18n's xiterm.
+
+2008-02-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/main.c (xterm_seq): Catenate version in title string with
 	configured version, rather than hard coding.
 
