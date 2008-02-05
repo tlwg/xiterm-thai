@@ -1,5 +1,10 @@
 2008-02-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/command.c, src/xdefaults.c: Use const pointer for rs_inputMethod
+	{and also rs_preeditType}, fixing warning about incompatible pointer.
+
+2008-02-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	Fix FTBFS with gcc:
 
 	* configure.in: Define _GNU_SOURCE with AC_GNU_SOURCE.

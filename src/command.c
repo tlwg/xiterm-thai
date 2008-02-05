@@ -345,8 +345,8 @@ static Atom DndProtocol, DndSelection;
 #endif /* OFFIX_DND */
 
 #ifndef NO_XLOCALE
-char *rs_inputMethod = NULL;	/* XtNinputMethod */
-char *rs_preeditType = NULL;	/* XtNpreeditType */
+const char *rs_inputMethod = NULL;	/* XtNinputMethod */
+const char *rs_preeditType = NULL;	/* XtNpreeditType */
 static XIC Input_Context;	/* input context */
 static void stringConversionCallback(
     XIC ic, XPointer client_data, XPointer call_data

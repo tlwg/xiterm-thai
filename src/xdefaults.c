@@ -83,7 +83,7 @@ static const char * rs_thai_space = NULL;
 static const char * rs_thai_keyboard = NULL;  /* Theppitak 1999-07-22 */
 extern int thai_spcount;
 #endif
-extern char * rs_inputMethod;  /* Theppitak 2000-11-18 */
+extern const char * rs_inputMethod;  /* Theppitak 2000-11-18 */
 /*}}}*/
 
 /*{{{ monolithic option/resource structure: */
