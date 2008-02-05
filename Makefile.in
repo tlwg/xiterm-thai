@@ -65,7 +65,7 @@ mrproper:
 
 ../$(VERNAME).tar.gz:
 	(cd ..; tar cvhf - --exclude CVS --exclude .cvsignore \
-	 --exclude 'debian*' --exclude '*.org' $(VERNAME) \
+	 --exclude autogen.sh --exclude 'debian*' --exclude '*.org' $(VERNAME) \
 	 | gzip -f9 > $(VERNAME).tar.gz)
 
 tar.gz:  ../$(VERNAME).tar.gz

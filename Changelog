@@ -1,5 +1,9 @@
 2008-02-04  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* Makefile.in: Exclude autogen.sh from distribution.
+
+2008-02-04  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* Makefile.in: exclude debian/ subdir and backup files from
 	distributed tarball.
 
