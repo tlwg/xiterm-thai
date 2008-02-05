@@ -1,5 +1,11 @@
 2008-02-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* Make.common.in: Remove -s option for install, so binary is not
+	installed stripped by default. Let distros do that at their choices.
+	E.g. http://bugs.debian.org/438296
+
+2008-02-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/command.c, src/xdefaults.c: Use const pointer for rs_inputMethod
 	{and also rs_preeditType}, fixing warning about incompatible pointer.
 
