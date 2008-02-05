@@ -43,6 +43,7 @@ AC_PATH_PROG(CP, cp, cp)
 dnl# system hacks
 AC_AIX
 AC_ISC_POSIX
+AC_GNU_SOURCE
 
 dnl# need a neat way to detect SVR4 or its features
 dnl# in src/command.c we use these functions:

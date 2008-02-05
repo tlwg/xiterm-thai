@@ -82,6 +82,7 @@ void makeutent (const char * pty, const char * hostname) {}
 
 #ifdef HAVE_UTMPX_H
 # include <utmpx.h>
+# include <utmp.h>
 # define USE_SYSV_UTMP
 #else
 # include <utmp.h>

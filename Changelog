@@ -1,3 +1,10 @@
+2008-02-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	Fix FTBFS with gcc:
+
+	* configure.in: Define _GNU_SOURCE with AC_GNU_SOURCE.
+	* src/utmp.c: Include <utmp.h> in addition to <utmpx.h>.
+
 2008-02-04  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* Makefile.in: Exclude autogen.sh from distribution.
