@@ -1,5 +1,10 @@
 2008-02-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* Make.common.in, Makefile.in: Also clear autom4te.cache on 'make
+	mrproper'.
+
+2008-02-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/Makefile.in: Rename binary from xiterm to xiterm+thai, to avoid
 	conflict with openi18n's xiterm.
 

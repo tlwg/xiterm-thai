@@ -30,6 +30,7 @@ CC = @CC@
 CPP = @CPP@
 RM = @RM@
 RMF = @RM@ -f
+RMRF = @RM@ -rf
 CP = @CP@
 INSTALL = @INSTALL@
 INSTALL_PROGRAM = @INSTALL@ -D -m 755
