@@ -61,11 +61,10 @@ dnl## ], [AC_MSG_RESULT(yes); AC_DEFINE(PERHAPS_SVR4)], AC_MSG_RESULT(perhaps no
 AC_C_CONST
 AC_C_INLINE
 AC_PATH_XTRA
+
 AC_CHECK_LIB(Xpm, XpmReadFileToPixmap,
-cat >> confdefs.h <<EOF
-#define HAVE_LIBXPM
-EOF
-X_PRE_LIBS="$X_PRE_LIBS -lXpm", , -lXt -lX11)
+  AC_DEFINE(HAVE_LIBXPM,1,[Define to 1 if you have libXpm available.])
+  X_PRE_LIBS="$X_PRE_LIBS -lXpm", , -lXt -lX11)
 
 dnl# Checks for header files.
 AC_HEADER_SYS_WAIT

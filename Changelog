@@ -1,3 +1,7 @@
+2008-02-07  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in: Define HAVE_XPM with AC_DEFINE.
+
 2008-02-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* configure.in:
