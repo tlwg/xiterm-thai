@@ -1,19 +1,23 @@
 Source: xiterm+thai
 Section: x11
 Priority: optional
-Maintainer: Debian QA Group <packages@qa.debian.org>
-Standards-Version: 3.6.2
-Build-Depends: libx11-dev, libxpm-dev, libxt-dev, x-dev, debhelper
+Maintainer: Neutron Soutmun <neo.neutron@gmail.com>
+Standards-Version: 3.7.3
+Build-Depends: libx11-dev, libxpm-dev, libxt-dev, debhelper (>= 5.0.51), 
+ autotools-dev, sharutils
+Vcs-Cvs: :pserver:anonymous@linux.thai.net:/home/cvs software/xiterm+thai
+Vcs-Browser: http://linux.thai.net/viewvc/viewvc.cgi/software/xiterm+thai/
+Homepage: http://linux.thai.net/projects/xiterm+thai/
 
 Package: xiterm+thai
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${misc:Depends},${shlibs:Depends}
 Recommends: xfonts-thai-nectec, xfonts-thai
-Conflicts: xiterm
-Suggests: menu, nonlock
-Description: x-terminal program with Thai languague support
- xiterm+thai is an x-terminal-emulator program with Thai language
+Suggests: menu
+Description: X terminal program with Thai languague support
+ xiterm+thai is an X terminal emulator program with Thai language
  support. It has built-in Thai keyboard input support. You could
- also use X11 XKB extension to input Thai character.
+ also use the X11 XKB extension to input Thai characters.
  .
- Thai font is needed to display Thai character.
+ A Thai TIS-620 font, such as one from xfonts-thai-nectec is needed 
+ to display Thai characters.

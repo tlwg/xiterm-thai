@@ -1,20 +1,26 @@
-It was checked out from :pserver:anonymous@linux.thai.net:/home/cvs
-by cvs co xiterm+thai modules
+It was downloaded from ftp://linux.thai.net/pub/thailinux/software/xiterm+thai/
 
-Upstream Authors:
+License
+=======
 
-  Vuthichai Ampornaramveth (วุฒิชัย อัมพรอร่ามเวทย์) <vuthi@venus.dti.ne.jp>
-  Theppitak Karoonboonyanan <theppitak@nectec.or.th>
+Files: debian/*
+Copyright: ยฉ 1999-2008 Chanop Silpa-Anan <chanop@debian.org>
+           ยฉ 2008 Neutron Soutmun <neo.neutron@gmail.com>
+License: GPL-2+
+ This package was debianized by Chanop Silpa-Anan <chanop@debian.org> on 
+ Mon, 06 Sep 1999 21:09:48 +1000.
+ This package was re-debianized by Neutron Soutmun <neo.neutron@gmail.com> on
+ Wed, 06 Feb 2008 23:44:58 +0700
+ . 
+ The current Debian maintainer is Neutron Soutmun <neo.neutron@gmail.com>.
 
-Copyright:
+Files: *
+Copyright: ยฉ 2000-2008 Vuthichai Ampornaramveth <vithi@venus.dti.ne.jp>,
+                       Theppitak Karoonboonyanan <thep@linux.thai.net>
+License: GPL-2+, other
+ xvt original copyright was "Do what you want, but can't make money on it.".
+ Rxvt had the same copyright since it was based on xvt.
+ xiterm is GPL-2 with autorization from xvt's original author.
 
-xvt original copyright was "Do what you want, but can't make money on it.".
-Rxvt had the same copyright since it was based on xvt.
-xiterm moved to GPL with autorization from xvt's original author.
-xiterm+thai is also GPL.
-
-You are free to distributes this software under the terms of the
-GNU General Public License. Under Debian GNU/Linux systems, the
-complete text on the GNU General Public License can be found in
-/usr/share/common-licenses/GPL file.
-
+On Debian systems, the complete text of the GNU General Public License, 
+version 2, can be found in /usr/share/common-licenses/GPL-2. 

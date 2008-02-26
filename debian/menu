@@ -1,4 +1,2 @@
-?package(xiterm+thai):needs="X11" section="XShells"\
+?package(xiterm+thai):needs="X11" section="Applications/Terminal Emulators"\
   title="xiterm+thai" command="/usr/bin/txiterm -ls"
-?package(xiterm+thai):needs="X11" section="XShells"\
-  title="xiterm" command="/usr/bin/xiterm -ls"

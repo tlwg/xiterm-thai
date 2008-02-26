@@ -1,3 +1,80 @@
+xiterm+thai (1.07-1) unstable; urgency=low
+
+  * New maintainer for formerly removed package. (Closes: #465713)
+  * New upstream release.
+    - Binary program renamed from xiterm to xiterm+thai, to avoid conflict
+      with openi18n's xiterm.
+    - Fix Fails-to-build-from-source bug with gcc. 
+    - Minor fixes and improvements.
+  * Use upstream tarball without debian subdir instead of CVS snapshot, and
+    repackage it as non-native.
+  * Bump the compatibility level:
+    - debian/compat: Bump to V5.
+    - debian/control: Add ${misc:Depends} and bump build depends on 
+      debhelper to (>= 5.0.51). Thanks Paul Wise for the suggestion which if
+      no need the new features of debhelper compat 6 then leave it at the
+      latest compat level available in stable.
+    - debian/rules, debian/install: Add dh_install for installing files.
+    - debian/manpages: Add manpage files which dh_installman use for proper
+      installation.
+    - debian/dirs: Drop, unneeded.
+  * Bump Standards-Version:
+    - debian/control: Bump Standards-Version to 3.7.3.
+    - debian/menu: Change section to Applications/Terminal Emulators, 
+      conform menu policy.
+  * Adjust config.guess, config.sub handling:
+    - debian/rules: Adjust config.guess, config.sub handling which the change 
+      is not included in .diff.gz.
+    - debian/control: Add build depends on autotools-dev.
+  * Add watch file.
+  * debian/control: 
+    - Add Vcs-Cvs, Vcs-Browser and Hompage infos.
+    - Drop build depends on x-dev, unneeded.
+    - Drop build conflicts on xiterm, no conflict files anymore.
+    - Drop build suggests on nonlock, package has been removed from debian.
+    - Rewrite package description. Thanks Paul Wise and 
+      Theppitak Karoonboonyanan.
+  * debian/rules:
+    - Remove workaround code for source compilation with utmp support, 
+      upstream fixed.
+    - Pass --host=$(DEB_HOST_GNU_TYPE) to configure only when cross compiling.
+    - Pass CFLAGS to configure.
+    - Install lintian override file to ignore the warning message, 
+      xiterm+thai: setgid-binary usr/bin/xiterm+thai 2755 root/utmp.
+    - Install upstream changelog.
+  * debian/menu: Drop unneeded menu with title="xiterm". Thanks Paul Wise.
+  * Add menu to support GNOME. Thanks Paul Wise.
+    - The workaround while upstream still not consider to add desktop and 
+      icon files yet, patch was sent to upstream.
+    - debian/xiterm+thai.desktop: Create GNOME desktop.
+    - debian/xiterm+thai-icon.uuencode: Create binary to text (uuencode) 
+      xiterm+thai icon, modified gnome-term icon.
+    - debian/control: Add build depends on sharutils, uudecode is needed for
+      convert back the xiterm+thai icon from text to binary.
+    - debian/rules: Install xiterm+thai.{desktop,png}, register using 
+      dh_desktop and dh_icons.
+  * debian/docs, debian/examples: 
+    - Move debian/inputrc from debian/docs to debian/examples which it is 
+      example script instead of doc.
+  * debian/docs: Drop unneeded docs. Thanks Paul Wise.
+    - README is about building.
+    - doc/COPYRIGHT.HISTORY is copied in debian/copyright.
+    - doc/README.rxvt.greek - Thai != greek. 
+    - doc/README.xvt.
+  * Convert README.thai encoding. Thanks Paul Wise.
+    - debian/rules: Convert README.thai encoding from TIS-620 to UTF-8 for
+      additional UTF-8 environment readable and install as README.thai-UTF-8.
+    - debian/docs: Add README.thai-UTF-8.
+  * debian/txiterm, debian/postinst, debian/prerm, debian/README.Debian: 
+    s/xiterm/xiterm+thai/ as upstream changed.
+  * debian/copyright: Rewrite in machine-interpretable format.
+  * debian/txiterm.1: Add txiterm manpage, which the author does not create
+    yet.
+  * debian/README.Debian: Rewrite to update infos.
+  * debian/BUILDING: Drop outdated maintainer documentation.
+
+ -- Neutron Soutmun <neo.neutron@gmail.com>  Wed, 06 Feb 2008 23:44:58 +0700
+
 xiterm+thai (1.06.cvs20060109-1) unstable; urgency=low
 
   * QA upload.

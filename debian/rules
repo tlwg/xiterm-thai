@@ -1,25 +1,51 @@
 #!/usr/bin/make -f
 # Sample debian/rules that uses debhelper.
-# GNU copyright 1997 to 1999 by Joey Hess.
+# This file is public domain software, originally written by Joey Hess.
 
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
-# This is the debhelper compatability version to use.
-export DH_COMPAT=4
+# These are used for cross-compiling and for saving the configure script
+# from having to guess our platform (since we know it already)
+DEB_HOST_GNU_TYPE   ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
+DEB_BUILD_GNU_TYPE  ?= $(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
 
-build: build-stamp
-build-stamp:
+ifeq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
+	build_flags = --build=$(DEB_BUILD_GNU_TYPE)
+else
+	build_flags = --build=$(DEB_BUILD_GNU_TYPE) --host=$(DEB_HOST_GNU_TYPE)
+endif
+
+
+CFLAGS = -Wall -g
+
+ifneq (,$(findstring noopt,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -O0
+else
+	CFLAGS += -O2
+endif
+
+config.status: configure
 	dh_testdir
 
-	./configure --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info
-	# I can't make this source compile with utmp support, :( so black magic
-	sed -e "s/^#define HAVE_UTMPX_H 1/\/* #undef HAVE_UTMPX_H *\//" config.h > config.h.tmp
-	mv config.h.tmp config.h
-	# Add here commands to compile the package.
-	$(MAKE) -j2
+ifneq "$(wildcard /usr/share/misc/config.sub)" ""
+	cp -f /usr/share/misc/config.sub config.sub
+endif
+ifneq "$(wildcard /usr/share/misc/config.guess)" ""
+	cp -f /usr/share/misc/config.guess config.guess
+endif
 
-	touch build-stamp
+	# Add here commands to configure the package.
+	./configure $(build_flags) --prefix=/usr --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info CFLAGS="$(CFLAGS)"
+
+build: build-stamp
+build-stamp: config.status
+	dh_testdir
+
+	# Add here commands to compile the package.
+	$(MAKE)
+
+	touch $@
 
 clean:
 	dh_testdir
@@ -27,8 +53,19 @@ clean:
 	rm -f build-stamp
 
 	# Add here commands to clean up after the build process.
-	-$(MAKE) realclean
-	rm -f Make.common Makefile config.h config.log config.status doc/Makefile src/Makefile
+	[ ! -f Makefile ] || $(MAKE) mrproper
+
+	[ ! -f doc/xiterm+thai.1 ] || rm -f doc/xiterm+thai.1
+
+	[ ! -f README.thai-UTF-8 ] || rm -f README.thai-UTF-8
+
+ifneq "$(wildcard /usr/share/misc/config.sub)" ""
+	rm -f config.sub
+endif
+ifneq "$(wildcard /usr/share/misc/config.guess)" ""
+	rm -f config.guess
+endif
+
 	dh_clean
 
 install: build
@@ -37,12 +74,14 @@ install: build
 	dh_clean -k
 	dh_installdirs
 
-	# Add here commands to install the package into debian/xiterm+thai.
-	$(MAKE) install DESTDIR=`pwd`/debian/xiterm+thai
-	install -o root -g root -m 0755 \
-	  debian/txiterm debian/xiterm+thai/usr/bin
-	(cd debian/xiterm+thai/usr/share/man/man1 ; ln -s xiterm.1 txiterm.1)
+	# Add here commands to install the package into debian/tmp.
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
 
+	install -D -m 0755 -o root -g root debian/txiterm debian/tmp/usr/bin/txiterm
+	install -D -m 0644 -o root -g root debian/xiterm+thai.desktop debian/tmp/usr/share/applications/xiterm+thai.desktop
+	mkdir -p debian/tmp/usr/share/pixmaps; uudecode -o debian/tmp/usr/share/pixmaps/xiterm+thai.png debian/xiterm+thai-icon.uuencode
+	cd doc ; mv -f xiterm.1 xiterm+thai.1
+	iconv -f TIS-620 -t UTF-8 -o README.thai-UTF-8 README.thai
 
 # Build architecture-independent files here.
 binary-indep: build install
@@ -55,13 +94,21 @@ binary-arch: build install
 	dh_installdocs
 	dh_installmenu
 	dh_installman
-	dh_installchangelogs 
+	dh_installchangelogs Changelog
+	dh_installexamples
+
+	# Install lintian override file
+	install -D -m 0644 debian/lintian-overrides $(CURDIR)/debian/tmp/usr/share/lintian/overrides/xiterm+thai
+
+	dh_install --sourcedir=debian/tmp
+	dh_desktop
+	dh_icons
 	dh_link
 	dh_strip
 	dh_compress
 	dh_fixperms
-	chown :utmp debian/xiterm+thai/usr/bin/xiterm
-	chmod g+s debian/xiterm+thai/usr/bin/xiterm
+	chown :utmp debian/xiterm+thai/usr/bin/xiterm+thai
+	chmod g+s debian/xiterm+thai/usr/bin/xiterm+thai
 	dh_installdeb
 	dh_shlibdeps
 	dh_gencontrol

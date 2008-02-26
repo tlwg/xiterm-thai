@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.07
+Encoding=UTF-8
+Name=Thai X terminal
+Comment=Thai X terminal
+Icon=xiterm+thai.png
+Exec=txiterm -ls
+Type=Application
+Categories=Application;Utility

@@ -9,7 +9,7 @@ LANG=th_TH
 export LANG XMODIFIERS
 
 if [ $# = 0 ]; then
-  exec /usr/bin/xiterm -fn nectec18 -cursorColor yellow -cursorColorThai red
+  exec /usr/bin/xiterm+thai -fn nectec18 -cursorColor yellow -cursorColorThai red
 else
-  exec /usr/bin/xiterm -fn nectec18 "$@"
+  exec /usr/bin/xiterm+thai -fn nectec18 "$@"
 fi

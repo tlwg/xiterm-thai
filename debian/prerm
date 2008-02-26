@@ -22,7 +22,7 @@ case "$1" in
          update-alternatives --remove x-terminal-emulator \
                  /usr/bin/txiterm
          update-alternatives --remove x-terminal-emulator \
-                 /usr/bin/xiterm
+                 /usr/bin/xiterm+thai
 
        ;;
     *)
