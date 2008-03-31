@@ -105,7 +105,7 @@ MCOMMON=./Make.common
 AC_SUBST_FILE(MCOMMON)
 
 AC_CONFIG_HEADER(config.h)
-AC_OUTPUT(Make.common Makefile src/Makefile \
+AC_OUTPUT(Make.common Makefile src/Makefile data/Makefile \
 doc/Makefile doc/LSM doc/xiterm.1 xiterm+thai.spec)
 
 echo "

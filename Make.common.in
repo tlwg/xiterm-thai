@@ -24,6 +24,7 @@ manprefix =
 bindir = @bindir@
 mandir = @mandir@/man1
 manext = 1
+datadir = @datadir@
 
 # Tools & program stuff
 CC = @CC@

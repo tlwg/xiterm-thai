@@ -1,0 +1,23 @@
+# src/Makefile.in	-*- Makefile -*-
+@MCOMMON@
+basedir = $(srcdir)/..
+thisdir = src
+
+first_rule: all
+dummy:
+
+all:
+
+clean:
+
+realclean: clean
+
+mrproper:
+	(cd $(srcdir); $(RMF) Makefile)
+
+install:
+	$(INSTALL_DATA) xiterm+thai.png $(DESTDIR)$(datadir)/pixmaps/xiterm+thai.png
+
+uninstall:
+	-cd $(datadir)/pixmaps; $(RMF) xiterm+thai.png
+

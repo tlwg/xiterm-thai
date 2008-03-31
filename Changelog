@@ -1,3 +1,16 @@
+2008-03-31  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	Add desktop icon taken from debian package, as prepared by
+	Neutron Soutmun.
+
+	* +data/xiterm+thai.png: Add the icon.
+	* +data/Makefile.in: Add make rules to manage data.
+	* icon.xpm -> data/icon.xpm: Move old icon to data subdir.
+
+	* Make.common.in: Add datadir variable.
+	* Makefile.in (subdirs): Add data to subdirs.
+	* configure.in: Generate data/Makefile.
+
 2008-02-07  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* configure.in: Define HAVE_XPM with AC_DEFINE.

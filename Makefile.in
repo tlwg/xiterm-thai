@@ -7,7 +7,7 @@ thisdir = ./
 first_rule: all
 dummy:
 
-subdirs = src doc
+subdirs = src data doc
 
 DIST =	INSTALL Make.common.in Makefile.in config.h.in configure\
 	configure.in install.sh
