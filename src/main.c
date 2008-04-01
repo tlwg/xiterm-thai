@@ -928,7 +928,7 @@ Create_Windows (int argc, char *argv[])
 #ifdef XPM_BACKGROUND
   if (rs_backgroundPixmap != NULL)
     {
-      char *p = rs_backgroundPixmap;
+      const char *p = rs_backgroundPixmap;
       if ((p = strchr (p, ';')) != NULL)
 	{
 	  p++;
@@ -1228,7 +1228,7 @@ static const char *
 search_path (const char *pathlist, const char *file, const char *ext)
 {
   static char name[256];
-  char *p, *path;
+  const char *p, *path;
   int maxpath, len;
 
   if (!access (file, R_OK))
@@ -1292,7 +1292,7 @@ search_path (const char *pathlist, const char *file, const char *ext)
 Pixmap
 set_bgPixmap (const char *file)
 {
-  char *f;
+  const char *f;
 
   assert (file != NULL);
 
@@ -1319,7 +1319,7 @@ set_bgPixmap (const char *file)
 #endif
 	  f = search_path (getenv ("PATH"), file, XPM_EXT);
 
-      if (f == NULL || XpmReadFileToPixmap (Xdisplay, Xroot, f,
+      if (f == NULL || XpmReadFileToPixmap (Xdisplay, Xroot, (char *)f,
 					    &bgPixmap.pixmap,
 					    NULL, &xpmAttr))
 	{

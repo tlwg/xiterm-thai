@@ -1,3 +1,13 @@
+2008-04-01  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	Fix gcc warnings about const pointer qualifiers.
+
+	* src/main.c (Create_Windows, search_path, set_bgPixmap): Declare
+	pointers as const.
+
+	* src/main.c (set_bgPixmap): Cast away const from pointer, to satisfy
+	XpmReadFileToPixmap() prototype.
+
 2008-03-31  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	Add desktop icon taken from debian package, as prepared by
