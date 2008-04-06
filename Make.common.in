@@ -42,7 +42,7 @@ CPPFLAGS = @CPPFLAGS@ #-DHAVE_LIBXPM
 LDFLAGS = @LDFLAGS@
 DEFS = @DEFS@
 LIBS = @LIBS@
-XINC = @X_CFLAGS@ #-I/usr/local/include
-XLIB = @X_LIBS@ @X_PRE_LIBS@ -lX11 @X_EXTRA_LIBS@ #-L/usr/local/lib -lXpm
+XINC = @X_CFLAGS@
+XLIB = @X_LIBS@
 
 # End of Make.common

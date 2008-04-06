@@ -60,11 +60,11 @@ dnl## ], [AC_MSG_RESULT(yes); AC_DEFINE(PERHAPS_SVR4)], AC_MSG_RESULT(perhaps no
 
 AC_C_CONST
 AC_C_INLINE
-AC_PATH_XTRA
+PKG_CHECK_MODULES(X,x11)
 
 AC_CHECK_LIB(Xpm, XpmReadFileToPixmap,
   AC_DEFINE(HAVE_LIBXPM,1,[Define to 1 if you have libXpm available.])
-  X_PRE_LIBS="$X_PRE_LIBS -lXpm", , -lXt -lX11)
+  X_LIBS="-lXpm $X_LIBS", , -lX11)
 
 dnl# Checks for header files.
 AC_HEADER_SYS_WAIT

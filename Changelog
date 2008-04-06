@@ -1,3 +1,14 @@
+2008-04-06  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	Do not link against the unused libSM and libICE (dpkg-shlibdeps
+	warnings reported from Debian).
+
+	* configure.in: Replace AC_PATH_XTRA with PKG_CHECK_MODULES, and only
+	check for x11.
+
+	* configure.in, Make.common.in: Only use X_LIBS. Eliminate X_PRE_LIBS
+	and X_EXTRA_LIBS usage, which were formerly passed from AC_PATH_XTRA.
+
 2008-04-01  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	Fix gcc warnings about const pointer qualifiers.
