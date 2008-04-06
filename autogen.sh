@@ -2,6 +2,8 @@
 
 set -x
 
+aclocal
+
 # autoconf2.50 is the diverted name when installed with autoconf2.13
 # at the same time on Debian. We prefer autoconf2.50.
 
