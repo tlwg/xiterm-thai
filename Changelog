@@ -1,5 +1,10 @@
 2008-04-07  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* configure.in:
+	Version 1.08
+
+2008-04-07  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* data/xiterm+thai.png: Replace the broken image.
 
 2008-04-06  Theppitak Karoonboonyanan <thep@linux.thai.net>

@@ -5,7 +5,7 @@ AC_INIT(src/feature.h)
 
 DATE="5 February 2008"
 LSMDATE=5FEB08
-VERSION=1.07
+VERSION=1.08
 VERNAME=xiterm+thai-${VERSION}
 MAINT="Theppitak Karoonboonyanan <thep@linux.thai.net>"
 
