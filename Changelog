@@ -1,5 +1,9 @@
 2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* configure.in: Add -Wall to default CFLAGS.
+
+2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	Eliminate dependency on Xt header <X11/Intrinsic.h>.
 
 	* src/main.h: Remove #include <X11/Intrinsic.h>. Its only use here

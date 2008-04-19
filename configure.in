@@ -20,10 +20,10 @@ dnl# Supply default CFLAGS, if not specified by `CFLAGS=flags ./configure'
 dnl#
 if test -z "${CFLAGS}"; then
     if test -z "${CCOPTS}"; then
-	CCOPTS='-O3 -fno-strength-reduce'
+	CCOPTS='-Wall -O3 -fno-strength-reduce'
 	if test "x$GCC" = xyes; then
 	    if test x$system = xLinux; then
-		CCOPTS='-O3 -fno-strength-reduce'
+		CCOPTS='-Wall -O3 -fno-strength-reduce'
 	    fi
 	fi
     fi
