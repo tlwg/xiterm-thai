@@ -47,7 +47,6 @@
 #define EXIT_FAILURE	1	/* exit function failure */
 #endif
 
-#include <X11/Intrinsic.h>	/* Xlib, Xutil, Xresource, Xfuncproto */
 #include "misc.h"
 /*}}} */
 
@@ -204,6 +203,7 @@ extern const char *rs_name;	/* client instance (resource name) */
 
 #define NRS_COLORS	(NCOLORS + NCURSOR + NBOLDULINE + NSCROLLCOLORS)
 extern const char *rs_color[NRS_COLORS];
+typedef unsigned long Pixel;
 extern Pixel PixColors[NRS_COLORS + NSHADOWCOLORS];
 
 #define NFONTS		5

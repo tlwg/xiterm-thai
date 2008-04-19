@@ -1,5 +1,24 @@
 2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	Eliminate dependency on Xt header <X11/Intrinsic.h>.
+
+	* src/main.h: Remove #include <X11/Intrinsic.h>. Its only use here
+	was the Pixel typedef, which is plain unsigned long in Xlib headers.
+	So, replace it with a typedef.
+
+	* src/xdefaults.h: Remove #include <X11/Intrinsic.h>. Just include the
+	required <X11/Xlib.h> instead, for the KeySym and Display data types.
+
+	* src/command.c: #include <X11/Xutil.h> formerly indirectly included
+	via <X11/Intrinsic.h>, for the XComposeStatus data type. Also
+	eliminate the XtSpecificationRelease macro check for X11 release.
+	We now assume xorg 7 which is > X11R6 anyway.
+
+	* src/misc.h: #include <X11/Xlib.h> formerly indirectly included via
+	<X11/Intrinsic.h>, for the Window and GC data types.
+
+2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* Makefile.in: Re-group shell commands from "(cd X; make Y || exit 1)"
 	to "(cd X; make Y) || exit 1", so the build exits with error when
 	an error occurs. (Comment by Paul Wise during Debian package

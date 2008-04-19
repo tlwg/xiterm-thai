@@ -15,6 +15,7 @@
 #ifndef _MISC_H
 #define _MISC_H
 #include <X11/Xfuncproto.h>
+#include <X11/Xlib.h>
 
 /*{{{ prototypes */
 _XFUNCPROTOBEGIN

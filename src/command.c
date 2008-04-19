@@ -37,6 +37,7 @@
 /*{{{ includes: */
 #include "main.h"
 #include "xdefaults.h"
+#include <X11/Xutil.h>
 #ifdef OFFIX_DND
 #include <X11/Xatom.h>
 #define DndFile	2
@@ -46,12 +47,8 @@
 
 #include <X11/keysym.h>
 #ifndef NO_XLOCALE
-#if (XtSpecificationRelease < 6)
-#define NO_XLOCALE
-#else
 #define X_LOCALE
 #include <X11/Xlocale.h>
-#endif
 #endif /* NO_XLOCALE */
 
 #include <errno.h>

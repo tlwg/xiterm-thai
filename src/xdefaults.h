@@ -5,7 +5,7 @@
 #define _XDEFAULTS_H
 /*{{{ includes */
 #include <X11/Xfuncproto.h>
-#include <X11/Intrinsic.h>	/* Xlib, Xutil, Xresource, Xfuncproto */
+#include <X11/Xlib.h>
 #include "feature.h"
 /*}}} */
 
