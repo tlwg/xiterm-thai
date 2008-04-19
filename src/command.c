@@ -573,9 +573,10 @@ get_pty (void)
 	}
     }
   goto Failed;
-#endif
 
 Found:
+#endif
+
   fcntl (fd, F_SETFL, O_NDELAY);
   return fd;
 
@@ -1363,7 +1364,6 @@ stringConversionCallback(XIC ic, XPointer client_data, XPointer call_data)
   char *p;
   int row, col;
   int begcol, endcol;
-  int i;
 
   conv_data = (XIMStringConversionCallbackStruct *)call_data;
 
@@ -1482,13 +1482,13 @@ lookup_key (XEvent * ev)
       if (Input_Context != NULL)
 	{
 	  Status status_return;
-	  len = XmbLookupString (Input_Context, &ev->xkey, kbuf,
+	  len = XmbLookupString (Input_Context, &ev->xkey, (char *)kbuf,
 				 sizeof (kbuf), &keysym,
 				 &status_return);
 	}
       else
 	{
-	  len = XLookupString (&ev->xkey, kbuf,
+	  len = XLookupString (&ev->xkey, (char *)kbuf,
 			       sizeof (kbuf), &keysym,
 			       &compose);
 	}
@@ -1659,19 +1659,19 @@ lookup_key (XEvent * ev)
 	    if (shft)
 	      {
 		len = 3;
-		strcpy (kbuf, "\033[Z");
+		strcpy ((char *)kbuf, "\033[Z");
 	      }
 	    break;
 
 	  case XK_Home:
-	    len = strlen (strcpy (kbuf, KS_HOME));
+	    len = strlen (strcpy ((char *)kbuf, KS_HOME));
 	    break;
 	  case XK_Left:	/* "\033[D" */
 	  case XK_Up:		/* "\033[A" */
 	  case XK_Right:	/* "\033[C" */
 	  case XK_Down:	/* "\033[B" */
 	    len = 3;
-	    strcpy (kbuf, "\033[@");
+	    strcpy ((char *)kbuf, "\033[@");
 	    kbuf[2] = ("DACB"[keysym - XK_Left]);
 	    if (PrivateModes & PrivMode_aplCUR)
 	      {
@@ -1690,40 +1690,40 @@ lookup_key (XEvent * ev)
 	    break;
 	  case XK_Prior:
 	    len = 4;
-	    strcpy (kbuf, "\033[5~");
+	    strcpy ((char *)kbuf, "\033[5~");
 	    break;
 	  case XK_Next:
 	    len = 4;
-	    strcpy (kbuf, "\033[6~");
+	    strcpy ((char *)kbuf, "\033[6~");
 	    break;
 	  case XK_End:
-	    len = strlen (strcpy (kbuf, KS_END));
+	    len = strlen (strcpy ((char *)kbuf, KS_END));
 	    break;
 
 	  case XK_Select:
 	    len = 4;
-	    strcpy (kbuf, "\033[4~");
+	    strcpy ((char *)kbuf, "\033[4~");
 	    break;
 	  case XK_Execute:
 	    len = 4;
-	    strcpy (kbuf, "\033[3~");
+	    strcpy ((char *)kbuf, "\033[3~");
 	    break;
 	  case XK_Insert:
 	    len = 4;
-	    strcpy (kbuf, "\033[2~");
+	    strcpy ((char *)kbuf, "\033[2~");
 	    break;
 
 	  case XK_Menu:
 	    len = 5;
-	    strcpy (kbuf, "\033[29~");
+	    strcpy ((char *)kbuf, "\033[29~");
 	    break;
 	  case XK_Find:
 	    len = 4;
-	    strcpy (kbuf, "\033[1~");
+	    strcpy ((char *)kbuf, "\033[1~");
 	    break;
 	  case XK_Help:
 	    len = 5;
-	    strcpy (kbuf, "\033[28~");
+	    strcpy ((char *)kbuf, "\033[28~");
 	    break;
 
 	  case XK_KP_Enter:
@@ -1736,7 +1736,7 @@ lookup_key (XEvent * ev)
 	    else
 	      {
 		len = 3;
-		strcpy (kbuf, "\033OM");
+		strcpy ((char *)kbuf, "\033OM");
 	      }
 	    break;
 
@@ -1745,7 +1745,7 @@ lookup_key (XEvent * ev)
 	  case XK_KP_F3:	/* "\033OR" */
 	  case XK_KP_F4:	/* "\033OS" */
 	    len = 3;
-	    strcpy (kbuf, "\033OP");
+	    strcpy ((char *)kbuf, "\033OP");
 	    kbuf[2] += (keysym - XK_KP_F1);
 	    break;
 
@@ -1779,7 +1779,7 @@ lookup_key (XEvent * ev)
 	  case XK_KP_Right:	/* "\033[C" */
 	  case XK_KP_Down:	/* "\033[B" */
 	    len = 3;
-	    strcpy (kbuf, "\033[@");
+	    strcpy ((char *)kbuf, "\033[@");
 	    kbuf[2] = ("DACB"[keysym - XK_KP_Left]);
 	    if (PrivateModes & PrivMode_aplCUR)
 	      {
@@ -1793,30 +1793,30 @@ lookup_key (XEvent * ev)
 	    break;
 	  case XK_KP_Prior:
 	    len = 4;
-	    strcpy (kbuf, "\033[5~");
+	    strcpy ((char *)kbuf, "\033[5~");
 	    break;
 	  case XK_KP_Next:
 	    len = 4;
-	    strcpy (kbuf, "\033[6~");
+	    strcpy ((char *)kbuf, "\033[6~");
 	    break;
 	  case XK_KP_End:
-	    len = strlen (strcpy (kbuf, KS_END));
+	    len = strlen (strcpy ((char *)kbuf, KS_END));
 	    break;
 	  case XK_KP_Insert:
 	    len = 4;
-	    strcpy (kbuf, "\033[2~");
+	    strcpy ((char *)kbuf, "\033[2~");
 	    break;
 	  case XK_KP_Home:
-	    len = strlen (strcpy (kbuf, KS_HOME));
+	    len = strlen (strcpy ((char *)kbuf, KS_HOME));
 	    break;
 	  case XK_KP_Delete:
-	    len = strlen (strcpy (kbuf, KS_DELETE));
+	    len = strlen (strcpy ((char *)kbuf, KS_DELETE));
 	    break;
 
 /* Nothing associated with case KP_Begin: at the moment ... */
 
 #define FKEY(n,fkey) len = 5;\
-sprintf (kbuf,"\033[%02d~", (int)((n) + (keysym - fkey)))
+sprintf ((char *)kbuf,"\033[%02d~", (int)((n) + (keysym - fkey)))
 
 
 	  case XK_F1:		/* "\033[11~" */
@@ -1875,7 +1875,7 @@ sprintf (kbuf,"\033[%02d~", (int)((n) + (keysym - fkey)))
 #undef FKEY
 #ifdef KS_DELETE
 	  case XK_Delete:
-	    len = strlen (strcpy (kbuf, KS_DELETE));
+	    len = strlen (strcpy ((char *)kbuf, KS_DELETE));
 	    break;
 #endif
 	  }
@@ -2519,7 +2519,7 @@ process_x_event (XEvent * ev)
  * Send count characters directly to the command
  */
 void
-tt_write (const unsigned char *buf, unsigned int count)
+tt_write (const char *buf, unsigned int count)
 {
   while (count > 0)
     {
@@ -2537,9 +2537,9 @@ tt_write (const unsigned char *buf, unsigned int count)
  * Only use for small ammounts of data.
  */
 void
-tt_printf (const unsigned char *fmt,...)
+tt_printf (const char *fmt,...)
 {
-  static unsigned char buf[256];
+  static char buf[256];
   va_list arg_ptr;
 
   va_start (arg_ptr, fmt);

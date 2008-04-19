@@ -1,5 +1,18 @@
 2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	Fix GCC warnings.
+
+	* src/command.c (get_pty): Move 'Found:' label into preprocessing
+	condition that actually uses it.
+	* src/command.c (stringConversionCallback): Remove unused variable
+	'i'.
+	* src/command.c (lookup_key): Cast away unsigned from kbuf where
+	needed.
+	* src/command.{c,h} (tt_write, tt_printf): Use plain char for the
+	first buffer argument.
+
+2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* configure.in: Add -Wall to default CFLAGS.
 
 2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>

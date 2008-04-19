@@ -33,11 +33,11 @@ extern void
   tt_resize (void);
 
 extern void
-  tt_write (const unsigned char * /* str */ ,
+  tt_write (const char * /* str */ ,
 	    unsigned int /* count */ );
 
 extern void
-  tt_printf (const unsigned char * /* fmt */ ,...);
+  tt_printf (const char * /* fmt */ ,...);
 
 extern unsigned int
   cmd_write (const unsigned char * /* str */ ,
