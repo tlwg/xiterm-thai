@@ -34,6 +34,10 @@
 #include "debug.h"
 #include "graphics.h"
 #include "screen.h"
+
+#ifdef THAI
+#include "thai.h"
+#endif
 /*}}} */
 /*{{{ defines */
 #define PROP_SIZE	4096
@@ -68,8 +72,6 @@ void thai_complexclear(int *from, int ypixel);
 #endif
 /*----------------------------------------------------------------------*
  */
-typedef unsigned char text_t;
-typedef unsigned int rend_t;
 
 static rend_t rstyle = DEFAULT_RSTYLE;
 
@@ -2712,7 +2714,7 @@ scr_refresh (int type)
 	      int outlineCursor = False;	/* block cursor */
 #ifdef THAI
 	      int xpixel = ThaiCol2Pixel(c, &screen.text[roffset]);
-	      char *start_text = &screen.text[roffset+c];
+	      unsigned char *start_text = &screen.text[roffset+c];
 #else
 	      int xpixel = Col2Pixel (c);
 #endif

@@ -1,5 +1,25 @@
 2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	Fix GCC warnings, plus code rearrangement.
+
+	* src/thai.{c,h}:
+	  - Move the global movetab[] array from .h to .c, make it static, and
+	    reformat it.
+	  - Declare prototypes for public functions in .h.
+	
+	* src/thai.c (ThaiCol2Pixel, ThaiWidth2Pixel): Make string parameters
+	unsigned.
+
+	* src/thai.c (thaistrlen): Change function def from K&R to ANSI C.
+	Rename parameters to be more meaningful.
+
+	* src/screen.c: Include thai.h, for function prototypes. Remove
+	typedefs duplicated with thai.h.
+
+	* src/screen.c (str_refresh): Declare start_text unsigned.
+
+2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	Fix GCC warnings.
 
 	* src/command.c (lookup_key): More casts for kbuf.

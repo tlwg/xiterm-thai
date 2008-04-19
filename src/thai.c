@@ -1,12 +1,29 @@
 #include "main.h"
 #include "thai.h"
 
-typedef unsigned char text_t;
-typedef unsigned int rend_t;
+static unsigned char movetab[] = {
+ 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, /* 00..0F */
+ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, /* 10..1F */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* 20..2F */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* 30..3F */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* 40..4F */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* 50..5F */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* 60..6F */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* 70..7F */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* 80..8F */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* 90..9F */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* A0..AF */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* B0..BF */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* C0..CF */
+ 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, /* D0..DF */
+ 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, /* E0..EF */
+ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* F0..FF */
+};
+
 extern text_t *drawn_text;
 int thai_spcount = 2;
 
-int thaistrlen(unsigned char *, unsigned char *);
+int thaistrlen(unsigned char *from, unsigned char *to);
 
 int thai_colinc(unsigned char c, int *udcount, int *spcount)
 {
@@ -52,13 +69,13 @@ int thai_colinc2(unsigned char c)
 
 
 /* int ThaiCol2Pixel(c, &screen.text[roffset]); */
-int ThaiCol2Pixel(int c, char *start)
+int ThaiCol2Pixel(int c, unsigned char *start)
 {
-  return thaistrlen(start, start+c)*TermWin.fwidth +TermWin_internalBorder;
+  return thaistrlen(start, start+c)*TermWin.fwidth + TermWin_internalBorder;
 }
 
 /* ThaiWidth2Pixel (count,start_text), Height2Pixel (1), 0) */
-int ThaiWidth2Pixel (int c, char *start)
+int ThaiWidth2Pixel (int c, unsigned char *start)
 {
   return thaistrlen(start, start+c)*TermWin.fwidth;
 }
@@ -112,24 +129,22 @@ int ThaiPixel2Col2(int x, int y)
   return col-1;
 }
 
-int thaistrlen(str, ptr)
-unsigned char *str; /* From */
-unsigned char *ptr; /* To */
+int thaistrlen(unsigned char *from, unsigned char *to)
 {
   int j;
 
   j=0;
   if(thai_spcount) {
     thai_colinc1(0);
-    while(str!=ptr) {
-      j+= thai_colinc1(*str);
-      str++;
+    while(from!=to) {
+      j+= thai_colinc1(*from);
+      from++;
     }
   }
   else {
-    while(str!=ptr) {
-      if(!movetab[*str]) j++;
-      str++;
+    while(from!=to) {
+      if(!movetab[*from]) j++;
+      from++;
     }
   }
   return j;
