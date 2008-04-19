@@ -1938,7 +1938,7 @@ sprintf ((char *)kbuf,"\033[%02d~", (int)((n) + (keysym - fkey)))
 #endif
     )
     {
-      const unsigned char ch = '\033';
+      const char ch = '\033';
       tt_write (&ch, 1);
     }
 
@@ -1968,7 +1968,7 @@ sprintf ((char *)kbuf,"\033[%02d~", (int)((n) + (keysym - fkey)))
   }
 #endif
 #endif  /* 0 */
-  tt_write (kbuf, len);
+  tt_write ((char *)kbuf, len);
 }
 /*}}} */
 
@@ -2653,7 +2653,7 @@ process_escape_seq (void)
       scr_index (UP);
       break;
     case 'E':
-      scr_add_lines ("\n\r", 1, 2);
+      scr_add_lines ((const unsigned char *)"\n\r", 1, 2);
       break;
     case 'H':
       scr_set_tab (1);
@@ -2921,7 +2921,7 @@ process_xterm_seq (void)
 	    }
 	}
       string[n] = '\0';
-      xterm_seq (arg, string);
+      xterm_seq (arg, (char *)string);
     }
 }
 /*}}} */

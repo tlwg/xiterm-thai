@@ -2,6 +2,16 @@
 
 	Fix GCC warnings.
 
+	* src/command.c (lookup_key): More casts for kbuf.
+	* src/command.c (process_escape_seq): Cast strings as unsigned char
+	for scr_add_lines() and xterm_seq() calls.
+
+	* src/main.c (scale_pixmap): Define w and h variables as unsigned int.
+
+2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	Fix GCC warnings.
+
 	* src/command.c (get_pty): Move 'Found:' label into preprocessing
 	condition that actually uses it.
 	* src/command.c (stringConversionCallback): Remove unused variable

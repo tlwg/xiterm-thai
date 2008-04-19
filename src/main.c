@@ -279,7 +279,8 @@ static int
 scale_pixmap (const char *geom)
 {
   static char str[] = "[1000x1000+100+100]";	/* should be big enough */
-  int w = 0, h = 0, x = 0, y = 0;
+  int x = 0, y = 0;
+  unsigned int w = 0, h = 0;
   int flags;
   int changed = 0;
 
