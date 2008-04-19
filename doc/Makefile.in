@@ -38,13 +38,13 @@ clean:
 realclean: clean
 
 mrproper:
-	(cd $(srcdir); $(RMF) LSM xiterm.1 *~)
-	(cd $(srcdir); $(RMF) Makefile)
+	cd $(srcdir) && $(RMF) LSM xiterm.1 *~
+	cd $(srcdir) && $(RMF) Makefile
 
 install: alldoc
 	$(INSTALL_DATA) xiterm.1 $(DESTDIR)$(mandir)/$(manprefix)xiterm.$(manext)
 
 uninstall:
-	-cd $(mandir); $(RMF) $(manprefix)xiterm.$(manext)
+	-cd $(mandir) && $(RMF) $(manprefix)xiterm.$(manext)
 
 # ------------------------------------------------------------------------

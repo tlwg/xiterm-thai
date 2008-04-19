@@ -13,7 +13,7 @@ clean:
 realclean: clean
 
 mrproper:
-	(cd $(srcdir); $(RMF) Makefile)
+	(cd $(srcdir) && $(RMF) Makefile)
 
 install:
 	$(INSTALL_DATA) xiterm+thai.png $(DESTDIR)$(datadir)/pixmaps/xiterm+thai.png

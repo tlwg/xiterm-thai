@@ -1,3 +1,13 @@
+2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* Makefile.in: Re-group shell commands from "(cd X; make Y || exit 1)"
+	to "(cd X; make Y) || exit 1", so the build exits with error when
+	an error occurs. (Comment by Paul Wise during Debian package
+	sponsoring.)
+
+	* Makefile.in, data/Makefile.in, doc/Makefile.in, src/Makefile.in:
+	Change "cd X; make Y" constructs to "cd X && make Y".
+
 2008-04-07  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* configure.in:
