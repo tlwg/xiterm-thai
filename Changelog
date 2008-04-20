@@ -1,5 +1,9 @@
 2008-04-20  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/xdefaults.c: Guard rs_inputMethod declaration with NO_XLOCALE.
+
+2008-04-20  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	Fix GCC warngings.
 
 	* src/thaikb.{c,h} (thai_map_qwerty): Make char parameter unsigned.

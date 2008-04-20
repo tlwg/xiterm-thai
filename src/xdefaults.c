@@ -82,8 +82,10 @@ static const char * rs_greek_keyboard = NULL;
 static const char * rs_thai_space = NULL;
 static const char * rs_thai_keyboard = NULL;  /* Theppitak 1999-07-22 */
 extern int thai_spcount;
-#endif
+# ifndef NO_XLOCALE
 extern const char * rs_inputMethod;  /* Theppitak 2000-11-18 */
+# endif
+#endif
 /*}}}*/
 
 /*{{{ monolithic option/resource structure: */
