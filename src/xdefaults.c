@@ -361,7 +361,7 @@ usage (int type)
 	  fprintf (stderr, "    %s%s %-*s%s%s\n",
 		   (optList_isBool (i) ? "-/+" : "-"),
 		   optList[i].opt,
-		   (INDENT - strlen (optList[i].opt)
+		   (int)(INDENT - strlen (optList[i].opt)
 		    + (optList_isBool (i) ? 0 : 2)),
 		   (optList[i].arg ? optList[i].arg : ""),
 		   (optList_isBool (i) ? "turn on/off " : ""),
@@ -378,12 +378,12 @@ usage (int type)
 	if (optList[i].kw != NULL)
 	  fprintf (stderr, "    %s: %*s\n",
 		   optList[i].kw,
-		   (INDENT - strlen (optList[i].kw)),
+		   (int)(INDENT - strlen (optList[i].kw)),
 		   (optList_isBool (i) ? "boolean" : optList[i].arg));
 
 #ifdef KEYSYM_RESOURCE
       fprintf (stderr, "    " "keysym.sym" ": %*s\n",
-	       (INDENT - strlen ("keysym.sym")), "keysym");
+	       (int)(INDENT - strlen ("keysym.sym")), "keysym");
 #endif
       fprintf (stderr, "\n    -help to list options\n\n");
       break;

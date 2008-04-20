@@ -1,5 +1,16 @@
 2008-04-20  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	Fix GCC warngings.
+
+	* src/thaikb.{c,h} (thai_map_qwerty): Make char parameter unsigned.
+
+	* src/utmp.c: Include "misc.h" for print_error() prototype.
+
+	* src/xdefaults.c (usage): Cast field width argument for in format
+	string from size_t to int.
+
+2008-04-20  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	Fix GCC warnings.
 
 	* src/command.{c,h} (tt_write): Change buffer parameter back to

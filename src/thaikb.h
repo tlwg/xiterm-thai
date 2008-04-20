@@ -15,7 +15,7 @@
 _XFUNCPROTOBEGIN
 
 extern void thai_set_keyboard(int thai_kbmode);
-extern char thai_map_qwerty(char c);
+extern char thai_map_qwerty(unsigned char c);
 
 _XFUNCPROTOEND
 

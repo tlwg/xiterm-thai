@@ -70,6 +70,7 @@
 /*{{{ includes, defines */
 #include "config.h"
 #include "feature.h"
+#include "misc.h"
 
 #ifndef UTMP_SUPPORT
 /* Dummy routines if utmp support isn't wanted */

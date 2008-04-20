@@ -59,7 +59,7 @@ void thai_set_keyboard(int thai_kbmode)
    }
 }
 
-char thai_map_qwerty(char c)
+char thai_map_qwerty(unsigned char c)
 {
    return thai_qwerty_map[c];
 }
