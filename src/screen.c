@@ -1807,7 +1807,7 @@ selection_make (Time tm)
     }
   *str = '\0';
 
-  selection.len = strlen (selection.text);
+  selection.len = strlen ((char*)selection.text);
   if (selection.len <= 0)
     return;
   XSetSelectionOwner (Xdisplay, XA_PRIMARY, TermWin.vt, tm);
@@ -1854,7 +1854,7 @@ selection_send (XSelectionRequestEvent * rq)
 
       XChangeProperty (Xdisplay, rq->requestor, rq->property,
 		   xa_targets, 8 * sizeof (target_list[0]), PropModeReplace,
-		       (char *) target_list,
+		       (unsigned char *) target_list,
 		       sizeof (target_list) / sizeof (target_list[0]));
       ev.xselection.property = rq->property;
     }
@@ -1871,9 +1871,9 @@ selection_send (XSelectionRequestEvent * rq)
 
 /*{{{ paste selection */
 static void
-PasteIt (unsigned char *data, unsigned int nitems)
+PasteIt (const unsigned char *data, unsigned int nitems)
 {
-  unsigned char *p = data, *pmax = data + nitems;
+  const unsigned char *p = data, *pmax = data + nitems;
 
   for (nitems = 0; p < pmax; p++)
     {
@@ -1899,7 +1899,7 @@ PasteIt (unsigned char *data, unsigned int nitems)
 void
 selection_paste (Window win, unsigned prop, int Delete)
 {
-  long nread, bytes_after;
+  unsigned long nread, bytes_after;
 
   if (prop == None)
     return;
@@ -1910,7 +1910,7 @@ selection_paste (Window win, unsigned prop, int Delete)
       unsigned char *data;
       Atom actual_type;
       int actual_fmt;
-      long nitems;
+      unsigned long nitems;
 
       if ((XGetWindowProperty (Xdisplay, win, prop,
 			       nread / 4, PROP_SIZE, Delete,
@@ -2957,7 +2957,8 @@ XClearArea (Xdisplay, drawBuffer, xpixel, \
 #endif /* THAI */
 
 #define drawString(strFunc)\
-strFunc (Xdisplay, drawBuffer, TermWin.gc, xpixel, ypixel, linebuf, count)
+strFunc (Xdisplay, drawBuffer, TermWin.gc, xpixel, ypixel, (char *)linebuf, \
+         count)
 /*----------------------------------------------------------------------*/
 
 #ifdef KANJI
@@ -3066,7 +3067,9 @@ strFunc (Xdisplay, drawBuffer, TermWin.gc, xpixel, ypixel, linebuf, count)
 		            break;
 		    case 2: top = (ypixel - TermWin.font->ascent)+height;
 		            break;
-		    case 3: top = (ypixel - TermWin.font->ascent);
+		    case 3:
+		    default: /* to make gcc quiet */
+		            top = (ypixel - TermWin.font->ascent);
                             break;
 		    }
 		    XDrawRectangle (Xdisplay,
@@ -3382,7 +3385,7 @@ mouse_tracking (int report, int x, int y, int firstrow, int lastrow)
 
 void thai_complexclear(int *list, int ypixel)
 {
-  int from, to, in, i;
+  int from = 0, to, in, i;
 
   in = 0;
   for(i=1;i<=TermWin.ncol;i++) {

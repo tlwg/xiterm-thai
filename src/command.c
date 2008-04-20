@@ -1938,7 +1938,7 @@ sprintf ((char *)kbuf,"\033[%02d~", (int)((n) + (keysym - fkey)))
 #endif
     )
     {
-      const char ch = '\033';
+      const unsigned char ch = '\033';
       tt_write (&ch, 1);
     }
 
@@ -1968,7 +1968,7 @@ sprintf ((char *)kbuf,"\033[%02d~", (int)((n) + (keysym - fkey)))
   }
 #endif
 #endif  /* 0 */
-  tt_write ((char *)kbuf, len);
+  tt_write (kbuf, len);
 }
 /*}}} */
 
@@ -2519,7 +2519,7 @@ process_x_event (XEvent * ev)
  * Send count characters directly to the command
  */
 void
-tt_write (const char *buf, unsigned int count)
+tt_write (const unsigned char *buf, unsigned int count)
 {
   while (count > 0)
     {
@@ -2545,7 +2545,7 @@ tt_printf (const char *fmt,...)
   va_start (arg_ptr, fmt);
   vsprintf (buf, fmt, arg_ptr);
   va_end (arg_ptr);
-  tt_write (buf, strlen (buf));
+  tt_write ((unsigned char*)buf, strlen (buf));
 }
 /*}}} */
 

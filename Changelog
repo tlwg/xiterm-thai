@@ -1,3 +1,28 @@
+2008-04-20  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	Fix GCC warnings.
+
+	* src/command.{c,h} (tt_write): Change buffer parameter back to
+	unsigned char. Still let tt_printf accepts plain char, as most format
+	strings are literal.
+	* src/command.c (tt_printf): Cast buffer to unsigned char when calling
+	tt_write().
+	* src/command.c (lookup_key): Declare a local char 'ch' unsigned char.
+	Uncast kbuf when calling tt_write().
+
+	* src/screen.c (selection_make): Cast away unsigned when calling
+	strlen().
+	* src/screen.c (selection_send): Cast target_list to (unsigned char *)
+	when calling XChangeProperty().
+	* src/screen.c (PasteIt): Declare first parameter const pointer.
+	* src/screen.c (selection_paste): Declare long variables unsigned,
+	to satisfy XGetWindowProperty() prototype.
+	* src/screen.c (drawString macro):  Cast away unsigned from linebuf,
+	to satisfy XDrawString*() functions.
+	* src/screen.c (scr_refresh): Add default case, to make sure 'top' is
+	always initialized, although such added case never happens.
+	* src/screen.c (thai_complexclear): Initialize 'from'.
+
 2008-04-19  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	Fix GCC warnings, plus code rearrangement.
