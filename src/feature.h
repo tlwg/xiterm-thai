@@ -391,7 +391,7 @@
 
 #define APL_CLASS	"XTerm"  /* class name */
 #define APL_SUBCLASS	"XiTerm" /* also check resources under this name */
-#define APL_NAME	"xiterm" /* normal name */
+#define APL_NAME	"xiterm+thai" /* normal name */
 
 /* COLORTERM, TERM environment variables */
 #define COLORTERMENV	"xiterm"

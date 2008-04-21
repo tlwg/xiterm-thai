@@ -219,11 +219,13 @@ static const struct {
 	rs_thai_keyboard,
 	"thai_keyboard",
 	"tkb", "mode", "Thai keyboard mapping; mode = tis | ket" ),
+# ifndef NO_XLOCALE
 /* Theppitak 2000-11-18 */
    STRG(
 	rs_inputMethod,
 	"thai_im",
 	"tim", "mode", "Thai imput method; mode = BasicCheck | Strict | Passthrough" ),
+# endif
 #endif
    SWCH( "iconic", Opt_iconic, "start iconic" ),
    SWCH( "ic", Opt_iconic, NULL ),	/* short form */

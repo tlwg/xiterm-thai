@@ -1,5 +1,11 @@
 2008-04-21  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/feature.h: Replace APL_NAME with "xiterm+thai".
+
+	* src/xdefaults.c (optList): Also guard rs_inputMethod option element.
+
+2008-04-21  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* doc/xiterm+thai.1.in: Replace "xiterm" text with "xiterm+thai".
 
 2008-04-21  Theppitak Karoonboonyanan <thep@linux.thai.net>
