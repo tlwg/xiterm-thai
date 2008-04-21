@@ -1,4 +1,4 @@
-.\" @(#)xiterm.1		-*- nroff -*-
+.\" @(#)xiterm+thai.1		-*- nroff -*-
 .\"-------
 .\" Dd	distance to space vertically before a "display"
 .\" These are what n/troff use for interparagraph distance
@@ -31,9 +31,9 @@
 .TH RXVT 1 @DATE@ "X Version 11" "X Tools"
 .UC
 .SH NAME
-xiterm \(em VT102 emulator for the X window system
+xiterm+thai \(em VT102 emulator for the X window system with Thai support
 .SH SYNOPSIS
-.B xiterm
+.B xiterm+thai
 .RI [ options ]
 .RB [ \-e
 .I command
@@ -47,7 +47,7 @@ xiterm \(em VT102 emulator for the X window system
 .ds sf <
 .\" end of editing region
 .SH DESCRIPTION
-.B xiterm
+.B xiterm+thai
 \(em version
 .B @VERSION@
 \(em is a color vt102 terminal emulator intended as an
@@ -55,12 +55,12 @@ xiterm \(em VT102 emulator for the X window system
 replacement for users who do not require features such as Tektronix 4014
 emulation and toolkit-style configurability.
 As a result,
-.B xiterm
+.B xiterm+thai
 uses much less swap space \(em a significant advantage on a machine serving
 many X sessions.
 .SH OPTIONS
 The
-.B xiterm
+.B xiterm+thai
 options
 (mostly a subset of
 .IR xterm 's)
@@ -70,11 +70,11 @@ or default values chosen at compile-time, so options and defaults listed
 may not accurately reflect the version installed on your system.
 .LP
 Note that
-.B xiterm
+.B xiterm+thai
 permits the resource name to be used as a long-option (\-\-/++ option) so the
 potential command-line options are far greater than those listed.
 .br
-For example: `xiterm \-\-loginShell \-\-color1 Orange'.
+For example: `xiterm+thai \-\-loginShell \-\-color1 Orange'.
 .TP
 .BR "\-help" , "\-\-help"
 Print out a message describing available options.
@@ -175,7 +175,7 @@ lines in the scrollback buffer; resource
 .TP
 \fB\-e\fP \fIcommand\fP [\fIarguments\fP]
 Run the command with its command-line arguments in the
-.B xiterm
+.B xiterm+thai
 window.
 If this option is used, it must be the last on the command-line.
 If there is no
@@ -198,7 +198,7 @@ Icon name; resource
 .B \-C
 Capture system console messages.
 .SH RESOURCES (available also as long-options)
-.B xiterm
+.B xiterm+thai
 accepts application defaults set in XAPPLOADDIR/Xiterm (compile-time defined:
 usually
 .BR /usr/lib/X11/app-defaults/Xiterm )
@@ -207,7 +207,7 @@ and resources set in
 or
 .BR ~/.Xresources .
 Note that when reading X resources,
-.B xiterm
+.B xiterm+thai
 recognizes two class names:
 .B XTerm
 and
@@ -215,15 +215,15 @@ and
 The class name
 .B XTerm
 allows resources common to both
-.B xiterm
+.B xiterm+thai
 and
 .I xterm
 to be easily configured, while the class name
 .B Xiterm
 allows resources unique to
-.BR xiterm ,
+.BR xiterm+thai ,
 notably colors and key-handling, to be shared between different
-.B xiterm
+.B xiterm+thai
 configurations.
 If no resources are specified, suitable defaults will be used.
 Command-line arguments can be used to override resource settings.
@@ -531,12 +531,12 @@ This resource is only available when compiled with
 .BR FAKE_RESOURCES .
 .SH "THE SCROLLBAR"
 Lines of text that scroll off the top of the
-.B xiterm
+.B xiterm+thai
 window (resource:
 .BR saveLines )
 and can be scrolled back using the scrollbar or by keystrokes.
 The normal
-.B xiterm
+.B xiterm+thai
 scrollbar has arrows and its behaviour is fairly intuitive.
 The
 .B xterm-scrollbar
@@ -588,7 +588,7 @@ Left triple-click to select the entire line.
 Pressing and releasing the Middle mouse button (or
 .BR Shift-Insert )
 in an
-.B xiterm
+.B xiterm+thai
 window causes the current text selection to be inserted as if it had
 been typed on the keyboard.
 .SH "CHANGING FONTS"
@@ -602,7 +602,7 @@ Or, alternatively (if enabled) with
 where the actual key can be selected using resources
 .BR smallfont_key / bigfont_key .
 .SH "LOGIN STAMP"
-.B xiterm
+.B xiterm+thai
 tries to write an entry into the
 .B utmp
 file (usually
@@ -611,17 +611,17 @@ so that it can be seen via the
 .IR who (1)
 command, and can accept messages.
 To allow this feature,
-.B xiterm
+.B xiterm+thai
 must be installed setuid root.
 .SH "COLORS AND GRAPHICS"
 If graphics support was enabled at compile-time,
-.B xiterm
+.B xiterm+thai
 can be queried with ANSI escape sequences and can address individual pixels
 instead of text characters.
 Note the graphics support is still considered beta code.
 .LP
 In addition to the default foreground and background colors,
-.B xiterm
+.B xiterm+thai
 can display up to 16 colors (8 ANSI colors plus high-intensity bold/blink
 versions of the same).
 Here is a list of the colors with their
@@ -681,12 +681,12 @@ This is in contrast to
 where the colors are only swapped if they have not otherwise been specified.
 For example,
 .TP
-.B xiterm \-fg Black \-bg White \-rv
+.B xiterm+thai \-fg Black \-bg White \-rv
 would yield White on Black, while on
 .I xterm
 it would yield Black on White.
 .SH ENVIRONMENT
-.B xiterm
+.B xiterm+thai
 sets the environment variables
 .BR TERM,
 .B COLORTERM
@@ -695,11 +695,11 @@ and
 The environment variable
 .B WINDOWID
 is set to the X window id number of the
-.B xiterm
+.B xiterm+thai
 window and it also uses and sets the environment variable
 .B DISPLAY
 to specify which display terminal to use.
-.B xiterm
+.B xiterm+thai
 uses the environment variables
 .B RXVTPATH
 and
@@ -726,7 +726,7 @@ But as is the case for
 .IR xterm ,
 it is a bug of the pseudo terminal driver of those systems.
 .LP
-xiterm 1.0 has the utmp support cleaned-up and supports
+xiterm+thai 1.0 has the utmp support cleaned-up and supports
 .B utmpx
 (i.e. Solaris 2.x) but there are still some problems.
 Please inform the maintainer of the correct solutions to utmp problems
@@ -741,7 +741,7 @@ Graphics support is fairly crude.
 For some fonts there are problems with pixel-droppings being left behind
 when simulated bold (overstrike) precedes a space character.
 Fixing
-.B xiterm
+.B xiterm+thai
 to handle these cases requires a lot of energy.
 So the easiest course by far is to specify a boldFont, specify colorBD or,
 if it was compiled without NO_BRIGHTCOLOR, to select a foreground color that
@@ -749,8 +749,8 @@ matches the pixel values of color 0\-7 so that overstrike bold won't be used.
 .LP
 Like
 .IR xterm ,
-.B xiterm
-handles mono-space fonts only.
+.B xiterm+thai
+handles mono-space fonts only, and only TIS-620 fonts are supported.
 .SH AUTHOR
 John Bovey, University of Kent, 1992.
 .LP
