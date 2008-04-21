@@ -11,7 +11,7 @@ dummy:
 #
 
 DIST =	Makefile.in README.greek README.xvt FAQ TODO \
-	xiterm.ref xterm.seq xiterm.1.in LSM.in\
+	xiterm.ref xterm.seq xiterm+thai.1.in LSM.in\
 	menu.sh jedmenu.sl
 
 #-------------------------------------------------------------------------
@@ -28,7 +28,7 @@ all:	alldoc
 
 tags allbin:
 
-alldoc:	xiterm.1 LSM
+alldoc:	xiterm+thai.1 LSM
 
 clean:
 # 2001-11-27 Theppitak Karoonboonyanan <thep@links.nectec.or.th>:
@@ -38,13 +38,14 @@ clean:
 realclean: clean
 
 mrproper:
-	cd $(srcdir) && $(RMF) LSM xiterm.1 *~
+	cd $(srcdir) && $(RMF) LSM xiterm+thai.1 *~
 	cd $(srcdir) && $(RMF) Makefile
 
 install: alldoc
-	$(INSTALL_DATA) xiterm.1 $(DESTDIR)$(mandir)/$(manprefix)xiterm.$(manext)
+	$(INSTALL_DATA) xiterm+thai.1 \
+	  $(DESTDIR)$(mandir)/$(manprefix)xiterm+thai.$(manext)
 
 uninstall:
-	-cd $(mandir) && $(RMF) $(manprefix)xiterm.$(manext)
+	-cd $(mandir) && $(RMF) $(manprefix)xiterm+thai.$(manext)
 
 # ------------------------------------------------------------------------

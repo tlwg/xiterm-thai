@@ -1,3 +1,9 @@
+2008-04-21  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in, doc/Makefile.in,
+	doc/xiterm.1.in -> doc/xiterm+thai.1.in:
+	Rename manpage from xiterm.1 to xiterm+thai.1.
+
 2008-04-20  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/xdefaults.c: Guard rs_inputMethod declaration with NO_XLOCALE.
