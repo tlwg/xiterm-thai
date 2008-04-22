@@ -72,23 +72,24 @@ distdepend:
 
 # -----------------------------------------------------------------------
 
-command.o: command.c main.h VERSION.h ./../config.h feature.h misc.h \
- xdefaults.h command.h debug.h graphics.h grkelot.h thaikb.h \
- scrollbar.h screen.h defaults.h
-debug.o: debug.c ./../config.h feature.h debug.h
-graphics.o: graphics.c main.h VERSION.h ./../config.h feature.h misc.h \
- command.h debug.h graphics.h screen.h
-grkelot.o: grkelot.c ./../config.h feature.h grkelot.h
-main.o: main.c main.h VERSION.h ./../config.h feature.h misc.h \
- command.h debug.h graphics.h scrollbar.h screen.h \
- xdefaults.h defaults.h
-misc.o: misc.c main.h VERSION.h ./../config.h feature.h misc.h
-netdisp.o: netdisp.c ./../config.h feature.h
-screen.o: screen.c main.h VERSION.h ./../config.h feature.h misc.h \
- command.h debug.h graphics.h screen.h
-scrollbar.o: scrollbar.c main.h VERSION.h ./../config.h feature.h \
- misc.h scrollbar.h
+# DO NOT DELETE: ugly dependency list follows
+command.o: command.c main.h VERSION.h ../config.h feature.h misc.h \
+  xdefaults.h command.h debug.h graphics.h grkelot.h thaikb.h scrollbar.h \
+  screen.h defaults.h
+debug.o: debug.c ../config.h feature.h debug.h
+graphics.o: graphics.c main.h VERSION.h ../config.h feature.h misc.h \
+  command.h debug.h graphics.h screen.h
+grkelot.o: grkelot.c ../config.h feature.h grkelot.h
+main.o: main.c main.h VERSION.h ../config.h feature.h misc.h command.h \
+  debug.h graphics.h scrollbar.h screen.h xdefaults.h defaults.h
+misc.o: misc.c main.h VERSION.h ../config.h feature.h misc.h
+netdisp.o: netdisp.c ../config.h feature.h
+screen.o: screen.c main.h VERSION.h ../config.h feature.h misc.h \
+  command.h debug.h graphics.h screen.h thai.h
+scrollbar.o: scrollbar.c main.h VERSION.h ../config.h feature.h misc.h \
+  scrollbar.h
+utmp.o: utmp.c ../config.h feature.h misc.h
+xdefaults.o: xdefaults.c main.h VERSION.h ../config.h feature.h misc.h \
+  debug.h defaults.h grkelot.h thaikb.h xdefaults.h
+thai.o: thai.c main.h VERSION.h ../config.h feature.h misc.h thai.h
 thaikb.o: thaikb.c thaikb.h
-utmp.o: utmp.c ./../config.h feature.h
-xdefaults.o: xdefaults.c main.h VERSION.h ./../config.h feature.h \
- misc.h debug.h defaults.h grkelot.h thaikb.h xdefaults.h

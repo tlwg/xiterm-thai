@@ -1,5 +1,9 @@
 2008-04-22  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/Makefile.in: Update object dependencies with 'make distdepend'.
+
+2008-04-22  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	Fix security risk for X11 connection stealth, as per Debian security
 	audit team's comment.
 
