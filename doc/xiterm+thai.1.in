@@ -28,7 +28,7 @@
 .fi
 .in
 ..
-.TH RXVT 1 @DATE@ "X Version 11" "X Tools"
+.TH XITERM+THAI 1 @DATE@ "X Version 11" "X Tools"
 .UC
 .SH NAME
 xiterm+thai \(em VT102 emulator for the X window system with Thai support
@@ -141,6 +141,32 @@ ISO-8859 mapping.
 .BR ibm :
 IBM-437 mapping; resource
 .BR greek_keyboard .
+.TP
+.BI \-tspace " int"
+Space count to trigger compensation for Thai rendering; default is 2; resource
+.BR thai_space .
+.TP
+.BI \-tkb " map"
+Thai keyboard map; 
+.BR tis :
+TIS-820.2538;
+.BR ket:
+traditional Ketmanee; default is
+.BR ket ;
+resource
+.BR thai_keyboard .
+.TP
+.BI \-tim " mode"
+Thai input method (based on XIM);
+.BR BasicCheck :
+weak sequence check for character composition;
+.BR Strict :
+strong check for orthographic rules;
+.BR Passthrough :
+no check; if unset, value described in the
+.BR XMODIFIERS
+environment is used; resource
+.BR thai_im .
 .TP
 .BI \-name " name"
 Specify the application name under which resources are to be obtained,
@@ -284,6 +310,10 @@ For this to take effect,
 must also be specified.
 The default is to use the background color.
 .TP
+.BI cursorColorThai: " color"
+Use the specified color for the cursor while in Thai mode.
+The default is to use the foreground color.
+.TP
 .BI reverseVideo: " boolean"
 .BR True :
 simulate reverse video by foreground and background colors; option
@@ -411,6 +441,33 @@ Use
 to toggle keyboard input.
 For more details, see the distributed file
 .BR README.greek .
+.TP
+.BI thai_space: " int"
+Set the space count to trigger space compensation for previous combining marks;
+default value is 2; option
+.BR -tsp .
+.TP
+.BI thai_keyboard: " map"
+Set the Thai keyboard translation map to use;
+.BR tis:
+TIS-820.2538 map;
+.BR ket:
+traditional Ketmanee map; default value is
+.BR ket ;
+option
+.BR -tkb .
+.TP
+.BI thai_im: " mod"
+Set the Thai input method (based on XIM) to use;
+.BR BasicCheck :
+weak sequence check for character composition;
+.BR Strict :
+strong check for orthographic rules;
+.BR Passthrough :
+no check; if unset, value described in the
+.BR XMODIFIERS
+environment is used; option
+.BR -tim .
 .TP
 .BI title: " text"
 Set window title string, the default title is the command-line specified
@@ -764,6 +821,8 @@ and addition of BSD sgtty terminal handling support by Raul Garcia Garcia
 <rgg@tid.es> 16/10/95.
 .LP
 mj olesen <olesen@me.QueensU.CA> (changes.txt 2.11 to 2.20)
+.LP
+Thai language support: Vuthichai Ampornaramveth <vuthi@mm.co.th>
 .\" for those who don't trust LSM entries, be explicit here
 .SH "CURRENT MAINTAINER"
 @MAINT@
