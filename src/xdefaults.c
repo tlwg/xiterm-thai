@@ -224,7 +224,7 @@ static const struct {
    STRG(
 	rs_inputMethod,
 	"thai_im",
-	"tim", "mode", "Thai imput method; mode = BasicCheck | Strict | Passthrough" ),
+	"tim", "mode", "Thai input method; mode = BasicCheck | Strict | Passthrough" ),
 # endif
 #endif
    SWCH( "iconic", Opt_iconic, "start iconic" ),

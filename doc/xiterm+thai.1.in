@@ -146,8 +146,8 @@ IBM-437 mapping; resource
 Space count to trigger compensation for Thai rendering; default is 2; resource
 .BR thai_space .
 .TP
-.BI \-tkb " map"
-Thai keyboard map; 
+.BI \-tkb " mode"
+Thai keyboard translation; 
 .BR tis :
 TIS-820.2538;
 .BR ket:
@@ -447,7 +447,7 @@ Set the space count to trigger space compensation for previous combining marks;
 default value is 2; option
 .BR -tsp .
 .TP
-.BI thai_keyboard: " map"
+.BI thai_keyboard: " mode"
 Set the Thai keyboard translation map to use;
 .BR tis:
 TIS-820.2538 map;
