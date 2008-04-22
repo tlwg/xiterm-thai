@@ -1,5 +1,16 @@
 2008-04-22  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	Fix security risk for X11 connection stealth, as per Debian security
+	audit team's comment.
+
+	* src/main.c (main): Instead of guaranteeing fallback value for
+	display_name by initializing it beforehand, try -display argument and
+	alike before resorting to DISPLAY environment, and stop there if
+	nothing is given. No more default display. (Fix adjusted from Neutron
+	Soutmun's patch.)
+
+2008-04-22  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/xdefaults.c (optList): Fix typo in thai_im description.
 	* doc/xiterm+thai.1.in: Use "mode" for -tkb and thai_keyboard
 	parameter, to be consistent with -[-]help message.

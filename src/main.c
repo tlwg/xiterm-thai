@@ -1653,10 +1653,13 @@ main (int argc, char *argv[])
   /*
    * Open display, get options/resources and create the window
    */
-  if ((display_name = getenv ("DISPLAY")) == NULL)
-    display_name = ":0";
-
   get_options (argc, argv);
+
+  if (!display_name && (display_name = getenv ("DISPLAY")) == NULL)
+    {
+      print_error ("can't open display, DISPLAY is not set?\n");
+      exit (EXIT_FAILURE);
+    }
 
   Xdisplay = XOpenDisplay (display_name);
   if (!Xdisplay)
