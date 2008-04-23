@@ -1,5 +1,10 @@
 2008-04-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/thai.h: Enclose prototypes with _XFUNCPROTO{BEGIN,END}.
+	* src/thaikb.{c,h}: Update my e-mail address.
+
+2008-04-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/thai.c:
 	  - Reorder functions according to declarations in the header.
 	  - Declare local symbols static.

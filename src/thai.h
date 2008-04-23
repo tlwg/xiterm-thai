@@ -1,6 +1,10 @@
 #ifndef _THAI_H
 #define _THAI_H
 
+#include <X11/Xfuncproto.h>
+
+_XFUNCPROTOBEGIN
+
 typedef unsigned char text_t;
 typedef unsigned int rend_t;
 
@@ -15,6 +19,8 @@ int ThaiCol2Pixel(int c, unsigned char *start);
 int ThaiWidth2Pixel (int c, unsigned char *start);
 int ThaiPixel2Col(int x, int y);
 int ThaiPixel2Col2(int x, int y);
+
+_XFUNCPROTOEND
 
 #endif /* _THAI_H */
 

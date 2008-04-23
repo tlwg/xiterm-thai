@@ -1,7 +1,7 @@
 /*
  * thaikb.c - Thai keyboard maps
  * Created: 22 Jul 1999 (split from command.c)
- * Author:  Theppitak Karoonboonyanan <thep@links.nectec.or.th>
+ * Author:  Theppitak Karoonboonyanan <thep@linux.thai.net>
  */
 
 #include "thaikb.h"
