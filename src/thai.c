@@ -23,9 +23,7 @@ static unsigned char movetab[] = {
 extern text_t *drawn_text;
 int thai_spcount = 2;
 
-int thaistrlen(unsigned char *from, unsigned char *to);
-
-int thai_colinc(unsigned char c, int *udcount, int *spcount)
+static int thai_colinc(unsigned char c, int *udcount, int *spcount)
 {
   int ret=0;
 
@@ -55,81 +53,19 @@ int thai_colinc(unsigned char c, int *udcount, int *spcount)
   return ret;
 }
 
-int thai_colinc1(unsigned char c)
+static int thai_colinc1(unsigned char c)
 {
   static int ud1,sp1;
   return thai_colinc(c,&ud1,&sp1);
 }
 
-int thai_colinc2(unsigned char c)
+static int thai_colinc2(unsigned char c)
 {
   static int ud2,sp2;
   return thai_colinc(c,&ud2,&sp2);
 }
 
-
-/* int ThaiCol2Pixel(c, &screen.text[roffset]); */
-int ThaiCol2Pixel(int c, unsigned char *start)
-{
-  return thaistrlen(start, start+c)*TermWin.fwidth + TermWin_internalBorder;
-}
-
-/* ThaiWidth2Pixel (count,start_text), Height2Pixel (1), 0) */
-int ThaiWidth2Pixel (int c, unsigned char *start)
-{
-  return thaistrlen(start, start+c)*TermWin.fwidth;
-}
-
-int ThaiPixel2Col(int x, int y)
-{
-  int doffset = Pixel2Row(y) * (TermWin.ncol + 1);
-  unsigned char *start = &drawn_text[doffset];
-  int col=0, cx=0;
-  x -= TermWin_internalBorder;
-  if(thai_spcount) {
-    thai_colinc1(0);
-    while(cx<=x) {
-      cx += TermWin.fwidth * thai_colinc1(start[col]);
-      col++;
-    }
-  }
-  else {
-    while(cx<=x) {
-      if(!movetab[start[col]])
-	cx += TermWin.fwidth;
-      col++;
-    }
-  }
-  return col-1;
-}
-
-int ThaiPixel2Col2(int x, int y)
-{
-  int doffset = Pixel2Row(y) * (TermWin.ncol + 1);
-  unsigned char *start = &drawn_text[doffset];
-  int col=0, cx=0;
-  x -= TermWin_internalBorder;
-  if(thai_spcount) {
-    thai_colinc1(0);
-    while(cx<=x) {
-      cx += TermWin.fwidth * thai_colinc1(start[col]);
-      col++;
-    }
-  }
-  else {
-    while(cx<=x) {
-      if(!movetab[start[col]])
-	cx += TermWin.fwidth;
-      col++;
-    }
-  }
-
-  while(movetab[start[col]] && col < TermWin.ncol)
-    col++;
-  return col-1;
-}
-
-int thaistrlen(unsigned char *from, unsigned char *to)
+static int thaistrlen(unsigned char *from, unsigned char *to)
 {
   int j;
 
@@ -230,12 +166,76 @@ int thai_isupper(unsigned char c)
   return movetab[c];
 }
 
-int levtable[]={
-                0,2,0,0,2,2,2,2,1,1,1,2,0,0,0,0,
-                0,0,0,0,0,0,0,3,3,3,3,3,3,3,3,0,
-                0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+static int levtable[] = {
+  0,2,0,0,2,2,2,2,1,1,1,2,0,0,0,0,
+  0,0,0,0,0,0,0,3,3,3,3,3,3,3,3,0,
+  0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+};
 
 int thai_level(unsigned char c)
 {
   return  (c>0xD0)?levtable[c-0xd0]:0;
 }
+
+
+/* int ThaiCol2Pixel(c, &screen.text[roffset]); */
+int ThaiCol2Pixel(int c, unsigned char *start)
+{
+  return thaistrlen(start, start+c)*TermWin.fwidth + TermWin_internalBorder;
+}
+
+/* ThaiWidth2Pixel (count,start_text), Height2Pixel (1), 0) */
+int ThaiWidth2Pixel (int c, unsigned char *start)
+{
+  return thaistrlen(start, start+c)*TermWin.fwidth;
+}
+
+int ThaiPixel2Col(int x, int y)
+{
+  int doffset = Pixel2Row(y) * (TermWin.ncol + 1);
+  unsigned char *start = &drawn_text[doffset];
+  int col=0, cx=0;
+  x -= TermWin_internalBorder;
+  if(thai_spcount) {
+    thai_colinc1(0);
+    while(cx<=x) {
+      cx += TermWin.fwidth * thai_colinc1(start[col]);
+      col++;
+    }
+  }
+  else {
+    while(cx<=x) {
+      if(!movetab[start[col]])
+	cx += TermWin.fwidth;
+      col++;
+    }
+  }
+  return col-1;
+}
+
+int ThaiPixel2Col2(int x, int y)
+{
+  int doffset = Pixel2Row(y) * (TermWin.ncol + 1);
+  unsigned char *start = &drawn_text[doffset];
+  int col=0, cx=0;
+  x -= TermWin_internalBorder;
+  if(thai_spcount) {
+    thai_colinc1(0);
+    while(cx<=x) {
+      cx += TermWin.fwidth * thai_colinc1(start[col]);
+      col++;
+    }
+  }
+  else {
+    while(cx<=x) {
+      if(!movetab[start[col]])
+	cx += TermWin.fwidth;
+      col++;
+    }
+  }
+
+  while(movetab[start[col]] && col < TermWin.ncol)
+    col++;
+  return col-1;
+}
+
