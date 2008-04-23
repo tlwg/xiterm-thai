@@ -1,7 +1,7 @@
 #include "main.h"
 #include "thai.h"
 
-static unsigned char movetab[] = {
+static const unsigned char movetab[] = {
  0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, /* 00..0F */
  1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, /* 10..1F */
  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, /* 20..2F */
@@ -166,7 +166,7 @@ int thai_isupper(unsigned char c)
   return movetab[c];
 }
 
-static int levtable[] = {
+static const short int levtable[] = {
   0,2,0,0,2,2,2,2,1,1,1,2,0,0,0,0,
   0,0,0,0,0,0,0,3,3,3,3,3,3,3,3,0,
   0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

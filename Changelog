@@ -1,5 +1,10 @@
 2008-04-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* src/thai.c (movetab, levtable): Declare const data const.
+	Make levtable short int array.
+
+2008-04-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* test/README, +test/TIS-620: Add Thai test file.
 
 2008-04-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
