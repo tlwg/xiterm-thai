@@ -1,5 +1,9 @@
 2008-04-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* test/README, +test/TIS-620: Add Thai test file.
+
+2008-04-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* src/thai.h: Enclose prototypes with _XFUNCPROTO{BEGIN,END}.
 	* src/thaikb.{c,h}: Update my e-mail address.
 

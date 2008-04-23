@@ -1,6 +1,7 @@
 This directory contains :
 color : shell script to test xiterm color's abitlity
 ISO-8859-1 : a test file with some ISO-8859-1 chars : accents, signs ...
+TIS-620 : a test file with Thai message in TIS-620
 
 -------------------------------------------------------------------------------
 
@@ -13,3 +14,7 @@ bash# test/color
 bash# cat test/ISO-8859-1
 
 -> You should see some accentuated chars & special signs
+
+bash# cat test/TIS-620
+
+-> With proper Thai font, you should see Thai message
