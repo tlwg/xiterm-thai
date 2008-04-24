@@ -1,3 +1,35 @@
+xiterm+thai (1.09-1) unstable; urgency=low
+
+  * New upstream release.
+    - Fix security risk for X11 connection stealth (CVE-2008-1692)
+      [thanks Debian security audit team]
+    - Remove build-dependency on Xt Intrinsic
+    - Clear much more GCC warnings
+    - Improve make rules and some code structure
+    - Thai-specific info in man page
+    - Really enable Xpm support when available.
+    - Less memory usage at load time, by removing unused linkages to libSM
+      and libICE.
+    - New desktop icon. [Neutron Soutmun]
+  * debian/control: 
+    - Add build-dep on pkg-config to satisfy the upstream changes.
+    - Drop build-dep on libxt-dev as upstream changes.
+  * debian/rules, debian/xiterm+xiterm-icon.uuencode: 
+    - Drop the binary to text icon file and related installation, 
+      the icon file included in the current upstream source.
+    - Drop the workaround, rename manpage before the installation. 
+      The upstream renamed the manpage from xiterm.1 to xiterm+thai.1.
+  * debian/watch: Fix the typo upstream release ftp link.
+  * lintian clean:
+    - debian/txiterm.1: Fix the mistaken hyphen-used-as-minus-sign. 
+    - debian/xiterm+thai.desktop: Fix the desktop-entry-contains-encoding-key
+      by drop the Encoding key which it is now deprecated.
+  * debian/txiterm, debian/xiterm+thai.desktop: 
+    - Add the parameters to set the white foreground and black background color
+      to the caller which can turn more readable screen.
+
+ -- Neutron Soutmun <neo.neutron@gmail.com>  Thu, 24 Apr 2008 16:21:09 +0700
+
 xiterm+thai (1.07-1) unstable; urgency=low
 
   * New maintainer for formerly removed package. (Closes: #465713)

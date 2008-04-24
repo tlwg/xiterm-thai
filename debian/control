@@ -3,8 +3,8 @@ Section: x11
 Priority: optional
 Maintainer: Neutron Soutmun <neo.neutron@gmail.com>
 Standards-Version: 3.7.3
-Build-Depends: libx11-dev, libxpm-dev, libxt-dev, debhelper (>= 5.0.51), 
- autotools-dev, sharutils
+Build-Depends: libx11-dev, libxpm-dev, debhelper (>= 5.0.51), autotools-dev, 
+  sharutils, pkg-config
 Vcs-Cvs: :pserver:anonymous@linux.thai.net:/home/cvs software/xiterm+thai
 Vcs-Browser: http://linux.thai.net/viewvc/viewvc.cgi/software/xiterm+thai/
 Homepage: http://linux.thai.net/projects/xiterm+thai/

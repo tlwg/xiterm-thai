@@ -55,9 +55,7 @@ clean:
 	# Add here commands to clean up after the build process.
 	[ ! -f Makefile ] || $(MAKE) mrproper
 
-	[ ! -f doc/xiterm+thai.1 ] || rm -f doc/xiterm+thai.1
-
-	[ ! -f README.thai-UTF-8 ] || rm -f README.thai-UTF-8
+	rm -f README.thai-UTF-8
 
 ifneq "$(wildcard /usr/share/misc/config.sub)" ""
 	rm -f config.sub
@@ -79,8 +77,6 @@ install: build
 
 	install -D -m 0755 -o root -g root debian/txiterm debian/tmp/usr/bin/txiterm
 	install -D -m 0644 -o root -g root debian/xiterm+thai.desktop debian/tmp/usr/share/applications/xiterm+thai.desktop
-	mkdir -p debian/tmp/usr/share/pixmaps; uudecode -o debian/tmp/usr/share/pixmaps/xiterm+thai.png debian/xiterm+thai-icon.uuencode
-	cd doc ; mv -f xiterm.1 xiterm+thai.1
 	iconv -f TIS-620 -t UTF-8 -o README.thai-UTF-8 README.thai
 
 # Build architecture-independent files here.
