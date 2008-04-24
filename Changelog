@@ -1,3 +1,8 @@
+2008-04-24  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in:
+	Version 1.09
+
 2008-04-23  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/thai.c (movetab, levtable): Declare const data const.

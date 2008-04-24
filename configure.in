@@ -3,9 +3,9 @@ dnl# Process this file with autoconf to produce a configure script.
 dnl#
 AC_INIT(src/feature.h)
 
-DATE="5 February 2008"
-LSMDATE=5FEB08
-VERSION=1.08
+DATE="24 April 2008"
+LSMDATE=24APR08
+VERSION=1.09
 VERNAME=xiterm+thai-${VERSION}
 MAINT="Theppitak Karoonboonyanan <thep@linux.thai.net>"
 
