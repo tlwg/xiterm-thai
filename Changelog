@@ -1,3 +1,8 @@
+2011-12-27  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/main.c: Add missing include <X11/Xutil.h> which caused FTBFS
+	on absense of libxpm support.
+
 2008-06-21  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* Makefile.in: Use 'make -C <dir>' instead of (cd <dir> && make').

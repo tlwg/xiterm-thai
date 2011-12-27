@@ -32,6 +32,7 @@
 #ifdef XPM_BACKGROUND
 #include <X11/xpm.h>
 #endif
+#include <X11/Xutil.h>
 
 #include "command.h"
 #include "debug.h"
