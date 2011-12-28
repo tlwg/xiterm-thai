@@ -1,3 +1,9 @@
+2011-12-28  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/command.c (get_tty): Check for return value from dup()
+	and give up on any failure. [triggerred by gcc warning]
+	Thanks Neutron Soutmun for the report.
+
 2011-12-27  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/main.c: Add missing include <X11/Xutil.h> which caused FTBFS

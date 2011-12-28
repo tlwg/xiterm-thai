@@ -653,21 +653,25 @@ get_tty (void)
   }
 #endif /* __svr4__ */
 
-  /*
-   * Close all file descriptors.  If only stdin/out/err are closed,
-   * child processes remain alive upon deletion of the window.
-   */
   {
     int i;
+    /*
+     * Close all file descriptors.  If only stdin/out/err are closed,
+     * child processes remain alive upon deletion of the window.
+     */
     for (i = 0; i < num_fds; i++)
       if (i != fd)
 	close (i);
-  }
 
-  /* Reopen stdin, stdout and stderr over the tty file descriptor */
-  dup (fd);			/* 0: stdin */
-  dup (fd);			/* 1: stdout */
-  dup (fd);			/* 2: stderr */
+    /* Reopen stdin, stdout and stderr over the tty file descriptor */
+    for (i = 0; i < 3; i++)
+      if (dup (fd) < 0)
+        {
+          fprintf (stderr,
+                   "Fail to dup tty for fd %d: %s\n", i, strerror (errno));
+          exit (EXIT_FAILURE);
+        }
+  }
 
   if (fd > 2)
     close (fd);
