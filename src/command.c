@@ -388,6 +388,22 @@ static void init_xlocale (void);
 #else
 #define init_xlocale() ((void)0)
 #endif
+
+/* override gcc attribute __wur used in glibc */
+static inline int
+nowarn_chown (const char *file, uid_t uid, gid_t gid)
+{
+  return chown (file, uid, gid);
+}
+#define chown(file,uid,gid) (nowarn_chown((file),(uid),(gid)))
+
+static inline int
+nowarn_fchown (int fd, uid_t uid, gid_t gid)
+{
+  return fchown (fd, uid, gid);
+}
+#define fchown(fd,uid,gid) (nowarn_fchown((fd),(uid),(gid)))
+
 /*----------------------------------------------------------------------*/
 /*}}} */
 
@@ -504,7 +520,8 @@ clean_exit (void)
 #endif
   privileges (RESTORE);
   chmod (ttydev, ttyfd_stat.st_mode);
-  chown (ttydev, ttyfd_stat.st_uid, ttyfd_stat.st_gid);
+  /* fail silently, e.g., when installed without sticky bit on */
+  (void) chown (ttydev, ttyfd_stat.st_uid, ttyfd_stat.st_gid);
   cleanutent ();
   privileges (IGNORE);
 }
@@ -647,7 +664,7 @@ get_tty (void)
 #endif /* USE_GETGRNAME */
 
     privileges (RESTORE);
-    fchown (fd, getuid (), gid);	/* fail silently */
+    (void) fchown (fd, getuid (), gid);	/* fail silently */
     fchmod (fd, mode);
     privileges (IGNORE);
   }

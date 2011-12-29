@@ -1,3 +1,17 @@
+2011-12-29  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	Get rid of gcc warning on unused results from chown() and fchown().
+
+	We'd like it to fail silently, e.g., when program is installed
+	without sticky bit on.
+
+	* src/command.c:
+	  - Add inline wrappers for chown() and fchown() to override
+	    the __wur attribute declared in glibc.
+	  - (clean_exit, get_tty): cast the results to void.
+
+	Reporter: Neutron Soutmun.
+
 2011-12-28  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* src/command.c (get_tty): Check for return value from dup()
