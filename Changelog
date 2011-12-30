@@ -1,3 +1,12 @@
+2011-12-30  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* src/main.c (resize_subwindows):
+	  - Add variable attribute 'unused' to old_height, to get rid of
+	    gcc warning. It's currently unused due to empty Gr_Resize()
+	    implementation, but may not be the case if Xtensions/ are used.
+
+	Reporter: Neutron Soutmun.
+
 2011-12-29  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	Get rid of gcc warning on unused results from chown() and fchown().

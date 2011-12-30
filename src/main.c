@@ -959,7 +959,14 @@ resize_subwindows (int width, int height)
 {
   int x = 0, y = 0;
   int old_width = TermWin.width;
+#ifdef __GNUC__
+  /* It's unused due to empty Gr_Resize() implementation, but may not be the
+   * case if Xtensions/ are used.
+   */
+  int old_height __attribute__ ((unused)) = TermWin.height;
+#else
   int old_height = TermWin.height;
+#endif
 
   TermWin.width = TermWin.ncol * TermWin.fwidth;
   TermWin.height = TermWin.nrow * TermWin.fheight;
