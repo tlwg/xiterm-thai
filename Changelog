@@ -1,5 +1,9 @@
 2012-01-04  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* Makefile.in: Check and make $(VERNAME) symlink before tarring.
+
+2012-01-04  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* Makefile.in: Use --exclude-vcs instead of --exclude CVS
 	when creating distrib tarball.
 

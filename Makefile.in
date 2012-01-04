@@ -63,7 +63,9 @@ mrproper:
 	(cd $(srcdir); $(RMF) Makefile Make.common)
 
 ../$(VERNAME).tar.gz:
-	(cd ..; tar cvhf - --exclude-vcs --exclude .cvsignore \
+	(CURDIR=$$(basename $$(pwd)); \
+	cd ..; test -e $(VERNAME) || ln -s $$CURDIR $(VERNAME); \
+	tar cvhf - --exclude-vcs --exclude .cvsignore \
 	 --exclude autogen.sh --exclude 'debian*' --exclude '*.org' $(VERNAME) \
 	 | gzip -f9 > $(VERNAME).tar.gz)
 
