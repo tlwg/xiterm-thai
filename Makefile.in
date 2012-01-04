@@ -62,14 +62,13 @@ mrproper:
 	@for I in $(subdirs); do $(MAKE) -C $$I $@ || exit 1; done
 	(cd $(srcdir); $(RMF) Makefile Make.common)
 
-../$(VERNAME).tar.gz:
+tar.gz:
+	$(RMF) ../$(VERNAME).tar.gz
 	(CURDIR=$$(basename $$(pwd)); \
 	cd ..; test -e $(VERNAME) || ln -s $$CURDIR $(VERNAME); \
 	tar cvhf - --exclude-vcs --exclude .cvsignore \
 	 --exclude autogen.sh --exclude 'debian*' --exclude '*.org' $(VERNAME) \
 	 | gzip -f9 > $(VERNAME).tar.gz)
-
-tar.gz:  ../$(VERNAME).tar.gz
 
 uuencode: tar.gz
 	uuencode ../$(VERNAME).tar.gz $(VERNAME).tar.gz > ../$(VERNAME).tgz.uu

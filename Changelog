@@ -1,5 +1,9 @@
 2012-01-04  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* Makefile.in: Force distrib tarball regeneration on tar.gz target.
+
+2012-01-04  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* Makefile.in: Check and make $(VERNAME) symlink before tarring.
 
 2012-01-04  Theppitak Karoonboonyanan <thep@linux.thai.net>
