@@ -1,5 +1,10 @@
 2012-01-04  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
+	* configure.in, Makefile.in, -xiterm+thai.spec.in:
+	Drop the outdated, unmaintaned RPM spec.
+
+2012-01-04  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
 	* Makefile.in: Force distrib tarball regeneration on tar.gz target.
 
 2012-01-04  Theppitak Karoonboonyanan <thep@linux.thai.net>

@@ -58,7 +58,7 @@ realclean:
 # and cleaning source links.
 mrproper:
 	(cd $(srcdir); $(RMF) *~ config.cache config.h config.log \
-	 config.status xiterm+thai.spec; $(RMRF) autom4te.cache)
+	 config.status; $(RMRF) autom4te.cache)
 	@for I in $(subdirs); do $(MAKE) -C $$I $@ || exit 1; done
 	(cd $(srcdir); $(RMF) Makefile Make.common)
 
