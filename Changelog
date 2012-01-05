@@ -1,3 +1,8 @@
+2012-01-05  Theppitak Karoonboonyanan <thep@linux.thai.net>
+
+	* configure.in:
+	Version 1.10
+
 2012-01-04  Theppitak Karoonboonyanan <thep@linux.thai.net>
 
 	* configure.in, Makefile.in, -xiterm+thai.spec.in:
