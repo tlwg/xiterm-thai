@@ -1,2 +1,0 @@
-?package(xiterm+thai):needs="X11" section="Applications/Terminal Emulators"\
-  title="xiterm+thai" command="/usr/bin/txiterm -ls"
